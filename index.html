@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Tidy Team · Ysgol Llandrillo Yn Rhos</title>
+<meta name="description" content="The Tidy Team — Ysgol Llandrillo Yn Rhos's volunteer gardening and upkeep crew. We meet the first Sunday of every month.">
+<link rel="icon" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+:root {
+    /* Palette sampled from the logo */
+    --cream:        #f5ecd6;
+    --cream-soft:   #fbf4e0;
+    --cream-card:   #ffffff;
+    --cream-deep:   #ecdfbe;
+    --ink:          #2a241b;
+    --ink-soft:     #6b5f4a;
+    --ink-faint:    #a89c80;
+    --line:         #e3d6b3;
+    --line-soft:    #ede1c1;
+
+    --blue:         #2f6cb0;
+    --blue-soft:    #e3edf8;
+    --yellow:       #efb820;
+    --yellow-soft:  #fcf0c8;
+    --green:        #5ea03f;
+    --green-deep:   #3f7c2a;
+    --green-soft:   #e6efd8;
+    --brown:        #b07a48;
+    --brown-soft:   #f0e4d2;
+
+    --rose:         #c84b5a;
+    --rose-soft:    #fae0e3;
+
+    --radius-card:  18px;
+    --radius-chip:  100px;
+
+    --shadow-card:  0 1px 0 rgba(42,36,27,0.04), 0 6px 18px -8px rgba(42,36,27,0.18);
+    --shadow-hover: 0 2px 0 rgba(42,36,27,0.06), 0 14px 30px -10px rgba(42,36,27,0.28);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Nunito', system-ui, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+img { display: block; max-width: 100%; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+.wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+/* ───────────── HEADER ───────────── */
+header.site-header {
+    padding: 28px 24px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.site-header .logo {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+}
+
+/* ───────────── HERO ───────────── */
+.hero {
+    padding: 4px 24px 24px;
+    text-align: center;
+}
+
+.hero .tagline {
+    font-family: 'Patrick Hand', cursive;
+    font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+    color: var(--ink-soft);
+    max-width: 620px;
+    margin: 0 auto 28px;
+    line-height: 1.45;
+}
+
+/* ───────────── NEXT-EVENT CARD ───────────── */
+.next-event {
+    max-width: 720px;
+    margin: 8px auto 0;
+    background: var(--cream-card);
+    border: 2px solid var(--ink);
+    border-radius: 22px;
+    padding: 26px 28px 24px;
+    position: relative;
+    box-shadow: 6px 6px 0 var(--ink);
+    text-align: left;
+}
+
+.next-event .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--yellow);
+    color: var(--ink);
+    font-weight: 800;
+    font-size: 0.72rem;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: var(--radius-chip);
+    border: 1.5px solid var(--ink);
+    margin-bottom: 14px;
+}
+
+.next-event h2 {
+    font-family: 'Patrick Hand', cursive;
+    font-size: clamp(1.9rem, 5vw, 2.7rem);
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+}
+
+.next-event h2 .blue   { color: var(--blue); }
+.next-event h2 .green  { color: var(--green-deep); }
+.next-event h2 .yellow { color: var(--yellow); -webkit-text-stroke: 1px #b8881a; }
+
+.next-event .when {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.next-event .when strong { color: var(--ink); font-weight: 800; }
+
+.next-event-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1.5px dashed var(--line);
+}
+
+.next-event-row .cell .label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 4px;
+}
+
+.next-event-row .cell .value {
+    font-size: 0.98rem;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.3;
+}
+
+.next-event .turn-up {
+    margin-top: 18px;
+    background: var(--green-soft);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 0.95rem;
+    color: var(--green-deep);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.next-event .turn-up .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 0 4px rgba(94,160,63,0.18);
+    flex-shrink: 0;
+}
+
+.cadence-note {
+    text-align: center;
+    margin: 22px auto 0;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+}
+
+.cadence-note::before, .cadence-note::after {
+    content: "•";
+    margin: 0 12px;
+    color: var(--ink-faint);
+}
+
+/* ───────────── ABOUT STRIP ───────────── */
+.about {
+    padding: 60px 24px 40px;
+}
+
+.about-inner {
+    max-width: 880px;
+    margin: 0 auto;
+    background: var(--cream-soft);
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius-card);
+    padding: 36px 36px 32px;
+}
+
+.about h3 {
+    font-size: 1.45rem;
+    font-weight: 900;
+    margin-bottom: 14px;
+    color: var(--ink);
+}
+
+.about h3 .accent { color: var(--green-deep); }
+
+.about p {
+    font-size: 1.02rem;
+    color: var(--ink-soft);
+    line-height: 1.75;
+    margin-bottom: 14px;
+}
+
+.about p:last-child { margin-bottom: 0; }
+
+.about-points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.about-point {
+    background: var(--cream-card);
+    border: 1.5px solid var(--line);
+    border-radius: 14px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.about-point .ico {
+    font-size: 1.4rem;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.about-point .txt strong {
+    display: block;
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 2px;
+}
+
+.about-point .txt span {
+    font-size: 0.84rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+}
+
+/* ───────────── JOBS BOARD ───────────── */
+.board {
+    padding: 24px 24px 56px;
+}
+
+.board-head {
+    max-width: 1120px;
+    margin: 0 auto 24px;
+}
+
+.board-eyebrow {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.board-title {
+    text-align: center;
+    font-size: clamp(1.8rem, 4.4vw, 2.4rem);
+    font-weight: 900;
+    color: var(--ink);
+    margin-bottom: 6px;
+    letter-spacing: -0.5px;
+}
+
+.board-sub {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+    margin-bottom: 26px;
+}
+
+.board-sub .updated {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--cream-soft);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-chip);
+    padding: 4px 12px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--ink-soft);
+    margin-left: 6px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+}
+
+.tab {
+    background: var(--cream-soft);
+    border: 1.5px solid var(--line);
+    color: var(--ink-soft);
+    font-family: inherit;
+    font-size: 0.92rem;
+    font-weight: 800;
+    padding: 10px 18px;
+    border-radius: var(--radius-chip);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.18s ease;
+}
+
+.tab:hover { border-color: var(--ink); color: var(--ink); }
+
+.tab.active {
+    background: var(--ink);
+    color: var(--cream);
+    border-color: var(--ink);
+}
+
+.tab .count {
+    background: rgba(255,255,255,0.18);
+    color: inherit;
+    border-radius: var(--radius-chip);
+    padding: 1px 9px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    min-width: 22px;
+    text-align: center;
+}
+
+.tab:not(.active) .count {
+    background: var(--cream-deep);
+    color: var(--ink-soft);
+}
+
+/* Category filter row */
+.cat-filters {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.cat-chip {
+    background: transparent;
+    border: 1.5px solid var(--line);
+    color: var(--ink-soft);
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 5px 12px;
+    border-radius: var(--radius-chip);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: all 0.15s ease;
+}
+
+.cat-chip:hover { border-color: var(--ink-soft); }
+.cat-chip.active { background: var(--ink); border-color: var(--ink); color: var(--cream); }
+
+/* Job grid */
+.jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 20px;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.empty-state {
+    max-width: 540px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 48px 24px;
+    background: var(--cream-soft);
+    border: 1.5px dashed var(--line);
+    border-radius: var(--radius-card);
+    color: var(--ink-soft);
+}
+
+.empty-state .big {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+    line-height: 1;
+}
+
+.empty-state h4 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 6px;
+}
+
+.empty-state p { font-size: 0.92rem; line-height: 1.6; }
+
+/* ───────────── JOB CARD ───────────── */
+.job-card {
+    background: var(--cream-card);
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative;
+}
+
+.job-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--ink-faint);
+}
+
+.job-thumb {
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: var(--cream-deep);
+}
+
+.job-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0; left: 0;
+}
+
+/* Placeholder thumbnail (when no image) */
+.job-thumb.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image:
+        repeating-linear-gradient(135deg, rgba(255,255,255,0.18) 0 10px, transparent 10px 22px);
+}
+
+.job-thumb.placeholder .ph-icon {
+    font-size: 3.2rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.18));
+}
+
+.job-thumb.cat-clearance    { background-color: var(--green-soft); }
+.job-thumb.cat-painting     { background-color: var(--yellow-soft); }
+.job-thumb.cat-heavy        { background-color: var(--rose-soft); }
+.job-thumb.cat-gardening    { background-color: var(--green-soft); }
+.job-thumb.cat-maintenance  { background-color: var(--blue-soft); }
+
+.job-num {
+    position: absolute;
+    top: 10px; left: 12px;
+    background: var(--cream-card);
+    border: 1.5px solid var(--ink);
+    color: var(--ink);
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: var(--radius-chip);
+    letter-spacing: 0.5px;
+    z-index: 2;
+}
+
+.job-site-badge {
+    position: absolute;
+    top: 10px; right: 12px;
+    background: var(--ink);
+    color: var(--cream);
+    font-size: 0.66rem;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: var(--radius-chip);
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+.job-body {
+    padding: 16px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.job-cat {
+    font-size: 0.68rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+}
+
+.job-cat::before {
+    content: "";
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.cat-clearance-text   { color: var(--green-deep); }
+.cat-painting-text    { color: #a05400; }
+.cat-heavy-text       { color: var(--rose); }
+.cat-gardening-text   { color: var(--green-deep); }
+.cat-maintenance-text { color: var(--blue); }
+
+.job-title {
+    font-size: 1.08rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 4px;
+    line-height: 1.25;
+    text-wrap: pretty;
+}
+
+.job-location {
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.job-desc {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin-bottom: 12px;
+    flex: 1;
+}
+
+.job-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 0;
+}
+
+.meta-tag {
+    background: var(--cream-soft);
+    border: 1px solid var(--line);
+    color: var(--ink-soft);
+    border-radius: var(--radius-chip);
+    padding: 3px 10px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ── Status-specific card styles ── */
+.job-card[data-status="in-progress"] {
+    border-color: var(--yellow);
+    box-shadow: 0 1px 0 rgba(42,36,27,0.04), 0 6px 18px -8px rgba(239,184,32,0.45);
+}
+
+.job-card[data-status="in-progress"]::before {
+    content: "🔨 Being worked on";
+    position: absolute;
+    top: 12px; right: 12px;
+    background: var(--yellow);
+    color: var(--ink);
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 4px 11px;
+    border-radius: var(--radius-chip);
+    border: 1.5px solid var(--ink);
+    z-index: 3;
+    letter-spacing: 0.3px;
+}
+
+.job-card[data-status="in-progress"] .job-site-badge { display: none; }
+
+.job-card[data-status="done"] {
+    background: var(--cream-soft);
+    opacity: 0.92;
+}
+
+.job-card[data-status="done"] .job-thumb { filter: saturate(0.4) brightness(0.95); }
+.job-card[data-status="done"] .job-thumb::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(245,236,214,0.35);
+    z-index: 1;
+}
+
+.job-card[data-status="done"] .job-title {
+    text-decoration: line-through;
+    text-decoration-color: var(--ink-faint);
+    text-decoration-thickness: 2px;
+    color: var(--ink-soft);
+}
+
+.job-card[data-status="done"]::before {
+    content: "✓ Done";
+    position: absolute;
+    top: 12px; right: 12px;
+    background: var(--green-deep);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 4px 11px;
+    border-radius: var(--radius-chip);
+    z-index: 3;
+    letter-spacing: 0.4px;
+}
+
+.job-card[data-status="done"] .job-site-badge { display: none; }
+
+.job-card[data-status="done"] .done-stamp {
+    display: block;
+    font-size: 0.74rem;
+    color: var(--green-deep);
+    font-weight: 800;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--line);
+}
+
+.done-stamp { display: none; }
+
+/* ───────────── CONTACT ───────────── */
+.contact {
+    padding: 56px 24px 64px;
+    background: var(--cream-soft);
+    border-top: 1.5px solid var(--line);
+    border-bottom: 1.5px solid var(--line);
+}
+
+.contact-inner {
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+.contact h3 {
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--ink);
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.contact p.lede {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin-bottom: 26px;
+    line-height: 1.6;
+}
+
+form.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+form.contact-form .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+@media (max-width: 520px) {
+    form.contact-form .row { grid-template-columns: 1fr; }
+}
+
+form.contact-form label {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 4px;
+    display: block;
+}
+
+form.contact-form input,
+form.contact-form textarea {
+    width: 100%;
+    background: var(--cream-card);
+    border: 1.5px solid var(--line);
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--ink);
+    transition: border-color 0.15s ease;
+}
+
+form.contact-form input:focus,
+form.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(47,108,176,0.15);
+}
+
+form.contact-form textarea {
+    resize: vertical;
+    min-height: 110px;
+    font-family: inherit;
+}
+
+form.contact-form button {
+    align-self: flex-start;
+    background: var(--ink);
+    color: var(--cream);
+    border: none;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 800;
+    padding: 13px 28px;
+    border-radius: var(--radius-chip);
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+    margin-top: 6px;
+}
+
+form.contact-form button:hover {
+    background: #1a1610;
+    transform: translateY(-1px);
+}
+
+.form-success {
+    display: none;
+    background: var(--green-soft);
+    border: 1.5px solid var(--green);
+    border-radius: 12px;
+    padding: 18px 20px;
+    color: var(--green-deep);
+    font-weight: 700;
+    text-align: center;
+}
+
+.form-success.show { display: block; }
+
+.bot-field { position: absolute; left: -9999px; }
+
+/* ───────────── FOOTER ───────────── */
+footer.site-footer {
+    background: var(--cream);
+    padding: 28px 24px 36px;
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--ink-faint);
+}
+
+footer.site-footer p { margin-bottom: 4px; }
+footer.site-footer .small { font-size: 0.78rem; }
+
+/* ───────────── LIGHTBOX ───────────── */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(42,36,27,0.88);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    animation: fadeIn 0.18s ease;
+}
+
+.lightbox.open { display: flex; }
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.lightbox-inner {
+    position: relative;
+    max-width: 720px;
+    width: 100%;
+    background: var(--cream-card);
+    border: 2px solid var(--ink);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 8px 8px 0 rgba(0,0,0,0.4);
+    animation: popIn 0.2s ease;
+}
+
+@keyframes popIn {
+    from { transform: scale(0.94); opacity: 0; }
+    to   { transform: scale(1);    opacity: 1; }
+}
+
+.lightbox-img {
+    width: 100%;
+    max-height: 56vh;
+    object-fit: cover;
+    background: var(--cream-deep);
+    display: block;
+}
+
+.lightbox-img-placeholder {
+    width: 100%;
+    height: 56vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    background-image: repeating-linear-gradient(135deg, rgba(255,255,255,0.18) 0 14px, transparent 14px 30px);
+}
+
+.lightbox-info {
+    padding: 20px 24px 24px;
+}
+
+.lightbox-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 4px;
+}
+
+.lightbox-location {
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.lightbox-desc {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin-bottom: 14px;
+}
+
+.lightbox-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 12px; right: 14px;
+    background: var(--ink);
+    color: var(--cream);
+    border: none;
+    border-radius: 50%;
+    width: 38px; height: 38px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s;
+    z-index: 10;
+}
+
+.lightbox-close:hover { background: #1a1610; }
+
+/* ───────────── RESPONSIVE ───────────── */
+@media (max-width: 640px) {
+    .next-event { padding: 22px 20px 20px; box-shadow: 4px 4px 0 var(--ink); }
+    .next-event-row { grid-template-columns: 1fr; gap: 12px; }
+    .about-inner { padding: 28px 22px 26px; }
+    .tabs { gap: 6px; }
+    .tab { padding: 9px 14px; font-size: 0.86rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ───────── HEADER ───────── -->
+<header class="site-header">
+    <img class="logo" src="logo.png" alt="The Tidy Team — Ysgol Llandrillo Yn Rhos">
+</header>
+
+<!-- ───────── HERO ───────── -->
+<section class="hero">
+    <p class="tagline">Join the Tidy Team — Ysgol Llandrillo Yn Rhos's volunteer gardening &amp; upkeep crew.</p>
+
+    <div class="next-event">
+        <div class="eyebrow">📣 Next session</div>
+        <h2><span class="blue">Sunday</span> <span class="green">7th June</span></h2>
+        <div class="when"><strong>10am – 1pm</strong> · at the school</div>
+
+        <div class="next-event-row">
+            <div class="cell">
+                <div class="label">📅 When</div>
+                <div class="value">Sun 7 June<br>10am – 1pm</div>
+            </div>
+            <div class="cell">
+                <div class="label">📍 Where</div>
+                <div class="value">Ysgol Llandrillo<br>Yn Rhos</div>
+            </div>
+            <div class="cell">
+                <div class="label">🎟 Joining</div>
+                <div class="value">Just turn up<br>No signup</div>
+            </div>
+        </div>
+
+        <div class="turn-up">
+            <span class="dot"></span>
+            Bring gloves if you've got them — everything else is provided.
+        </div>
+    </div>
+
+    <p class="cadence-note">We meet the first Sunday of every month</p>
+</section>
+
+<!-- ───────── ABOUT ───────── -->
+<section class="about">
+    <div class="about-inner">
+        <h3>What's <span class="accent">The Tidy Team?</span></h3>
+        <p>A standing crew of parents, neighbours and friends who get together once a month to keep the school grounds in good shape — gardening, painting, tidying, the occasional bigger job. No experience needed, and you don't need to commit to every session. Come for the morning, stay an hour, do what you fancy.</p>
+        <p>It's run by parents, not the school. The kettle's always on.</p>
+
+        <div class="about-points">
+            <div class="about-point">
+                <span class="ico">☕</span>
+                <span class="txt">
+                    <strong>Tea &amp; coffee on tap</strong>
+                    <span>And usually a biscuit or two.</span>
+                </span>
+            </div>
+            <div class="about-point">
+                <span class="ico">🛠</span>
+                <span class="txt">
+                    <strong>Bring tools if you can</strong>
+                    <span>Rakes, gloves, trowels — anything helps.</span>
+                </span>
+            </div>
+            <div class="about-point">
+                <span class="ico">👶</span>
+                <span class="txt">
+                    <strong>Kids welcome</strong>
+                    <span>Plenty for little hands to do too.</span>
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ───────── JOBS BOARD ───────── -->
+<section class="board" id="board">
+    <div class="board-head">
+        <p class="board-eyebrow">The Tidy Team noticeboard</p>
+        <h2 class="board-title">Jobs that need doing</h2>
+        <p class="board-sub">
+            A running list. Pick one, several, or just turn up and we'll point you somewhere.
+            <span class="updated">↻ Updated 27 May 2026</span>
+        </p>
+
+        <div class="tabs" id="tabs">
+            <button class="tab active" data-status="todo">✏️ Needs doing <span class="count" id="count-todo">0</span></button>
+            <button class="tab" data-status="in-progress">🔨 In progress <span class="count" id="count-in-progress">0</span></button>
+            <button class="tab" data-status="done">✓ Recently done <span class="count" id="count-done">0</span></button>
+        </div>
+
+        <div class="cat-filters" id="cat-filters">
+            <button class="cat-chip active" data-cat="all">All</button>
+            <button class="cat-chip" data-cat="Clearance">Clearance</button>
+            <button class="cat-chip" data-cat="Painting">Painting</button>
+            <button class="cat-chip" data-cat="Gardening">Gardening</button>
+            <button class="cat-chip" data-cat="Maintenance">Maintenance</button>
+            <button class="cat-chip" data-cat="Heavy Lifting">Heavy Lifting</button>
+        </div>
+    </div>
+
+    <div class="jobs-grid" id="jobs-grid"></div>
+
+    <div class="empty-state" id="empty-state" style="display:none;">
+        <div class="big" id="empty-icon">🌱</div>
+        <h4 id="empty-title">Nothing here yet</h4>
+        <p id="empty-text">Check back after the next session.</p>
+    </div>
+</section>
+
+<!-- ───────── CONTACT ───────── -->
+<section class="contact" id="contact">
+    <div class="contact-inner">
+        <h3>Got a question?</h3>
+        <p class="lede">Drop a quick note and we'll get back to you. No mailing list, no follow-ups — just a way to ask anything you need to before Sunday.</p>
+
+        <form name="tidy-team-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form" id="contact-form">
+            <input type="hidden" name="form-name" value="tidy-team-contact">
+            <p class="bot-field"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+            <div class="row">
+                <div>
+                    <label for="name">Your name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+            </div>
+
+            <div>
+                <label for="message">Comment or question</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+
+            <button type="submit">Send message</button>
+
+            <div class="form-success" id="form-success">
+                Thanks — message sent. We'll be in touch.
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- ───────── FOOTER ───────── -->
+<footer class="site-footer">
+    <p><strong>Ysgol Llandrillo Yn Rhos · The Tidy Team</strong></p>
+    <p class="small">First Sunday of every month · 10am – 1pm · Run by parents</p>
+</footer>
+
+<!-- ───────── LIGHTBOX ───────── -->
+<div class="lightbox" id="lightbox">
+    <div class="lightbox-inner" id="lightbox-inner">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+        <div id="lightbox-media"></div>
+        <div class="lightbox-info">
+            <div class="lightbox-title" id="lightbox-title"></div>
+            <div class="lightbox-location" id="lightbox-location"></div>
+            <div class="lightbox-desc" id="lightbox-desc"></div>
+            <div class="lightbox-meta" id="lightbox-meta"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+/* ─────────────────────────────────────────────────
+   JOBS DATA
+   To update: change `status` on a job:
+     "todo"        — still needs doing
+     "in-progress" — currently being worked on
+     "done"        — completed (add `completedOn`: "Sun 4 May 2026")
+   Add `img` to give a job a real photo file path.
+   ───────────────────────────────────────────────── */
+const jobs = [
+    { id:1,  status:"todo", site:"Junior", title:"Hall Front Clearance", category:"Clearance",
+      location:"Outside the front of the Hall",
+      desc:"Remove bricks, leaves, overgrown vegetation and ivy from the area outside the front of the Hall. A great team job to kick things off!",
+      time:"1 hr", people:"2 people", tools:"Gloves, rake, wheelbarrow" },
+
+    { id:2,  status:"todo", site:"Junior", title:"Debris Removal & Fence Painting", category:"Painting",
+      location:"Junior Site",
+      desc:"Clear debris from the area then give the wooden fencing a fresh coat of paint. A really satisfying before-and-after job.",
+      time:"2 hrs", people:"2–3 people", tools:"Rake, gloves, paintbrushes, fence paint" },
+
+    { id:3,  status:"todo", site:"Junior", title:"Recycling Area Clearance", category:"Clearance",
+      location:"Dragon Bags recycling bin area",
+      desc:"Clear overgrown vegetation from around the Dragon Bags recycling bin. A quick job that makes a big difference.",
+      time:"15 mins", people:"1–2 people", tools:"Gloves, shears, small rake" },
+
+    { id:4,  status:"todo", site:"Junior", title:"Old Furniture Removal", category:"Heavy Lifting",
+      location:"Junior Site",
+      desc:"Remove old unwanted furniture from the site. You'll need to be comfortable with heavy lifting — team up and make light work of it!",
+      time:"15 mins", people:"3–4 people", tools:"Gloves, sturdy footwear" },
+
+    { id:6,  status:"todo", site:"Junior", title:"General Vegetation Clearance", category:"Clearance",
+      location:"Junior Site",
+      desc:"Remove leaves and rubbish, and cut back overgrown vegetation across the site. Classic outdoor work — fresh air included!",
+      time:"2 hrs", people:"3–4 people", tools:"Gloves, shears, rake, bags" },
+
+    { id:7,  status:"todo", site:"Junior", title:"Branch & Leaf Removal", category:"Clearance",
+      location:"Junior Site",
+      desc:"Clear old fallen branches and built-up leaf litter from around the site. Good outdoor physical work.",
+      time:"1 hr", people:"2–3 people", tools:"Gloves, loppers, rake, bags" },
+
+    { id:9,  status:"todo", site:"Junior", title:"Moss & Leaf Clearance", category:"Clearance",
+      location:"Junior Site",
+      desc:"Scrub away moss build-up and sweep accumulated leaves from pathways and surfaces around the site.",
+      time:"1 hr", people:"2 people", tools:"Stiff brush, rake, gloves, bags" },
+
+    { id:10, status:"todo", site:"Junior", title:"Wall Stain Painting", category:"Painting",
+      location:"Junior Site",
+      desc:"Paint over stains on the wall left by old flue guards. A steady hand and a bit of patience is all you need.",
+      time:"1 hr", people:"1–2 people", tools:"Exterior masonry paint, brushes, dust sheet" },
+
+    { id:11, status:"todo", site:"Junior", title:"Sam's Shed – Side Clearance", category:"Clearance",
+      location:"Side of Sam's Shed",
+      desc:"Clear overgrown vegetation and leaves from the area at the side of Sam's Shed. Straightforward clearance work — gloves and a rake required.",
+      time:"1 hr", people:"2 people", tools:"Gloves, rake, shears, bags" },
+
+    { id:12, status:"todo", site:"Junior", title:"Sam's Shed – Platform Clearance", category:"Clearance",
+      location:"Next to Sam's Shed platform",
+      desc:"Clear moss, overgrown vegetation and leaves from the area next to the Sam's Shed platform. A satisfying tidy-up job.",
+      time:"1 hr", people:"2 people", tools:"Stiff brush, rake, gloves, shears" },
+
+    { id:13, status:"todo", site:"Junior", title:"Leaf Build-up Clearance", category:"Clearance",
+      location:"Junior Site",
+      desc:"Clear a significant build-up of leaves and debris. Grab a rake and get stuck in — this one is very satisfying once done!",
+      time:"1 hr", people:"2 people", tools:"Rake, gloves, bags" },
+
+    { id:14, status:"todo", site:"Junior", title:"Picnic Table Restoration", category:"Painting",
+      location:"Junior Site",
+      desc:"Sand down and repaint the picnic tables so they're looking fresh for the children. A really rewarding transformation you'll be able to see every day.",
+      time:"4 hrs", people:"2–3 people", tools:"Sandpaper / orbital sander, wood paint or stain, brushes, gloves" },
+
+    { id:15, status:"todo", site:"Junior", title:"Planting Area Weeding", category:"Gardening",
+      location:"Planting borders, Junior Site",
+      desc:"Get your hands in the soil and weed the planting borders. Perfect for anyone who enjoys proper gardening — bring your trowel!",
+      time:"2 hrs", people:"2–3 people", tools:"Trowel, gloves, kneeling pad, bags" },
+
+    { id:16, status:"todo", site:"Junior", title:"Moss Removal & Picnic Table Attention", category:"Clearance",
+      location:"Junior Site",
+      desc:"Remove moss from surfaces and give the picnic tables in this area a good clean and tidy. A great job for a couple of people working together.",
+      time:"2 hrs", people:"2 people", tools:"Stiff brush, scraper, gloves, cleaning solution" },
+
+    { id:17, status:"todo", site:"Junior", title:"Low Level Wall Painting", category:"Painting",
+      location:"Junior Site",
+      desc:"Apply a fresh coat of masonry paint to the low level walls around the site. Rollers make quick work of this — a satisfying job.",
+      time:"3 hrs", people:"2–3 people", tools:"Masonry paint, rollers, brushes, dust sheets, gloves" },
+
+    { id:18, status:"todo", site:"Junior", title:"Stairway Wall Painting", category:"Painting",
+      location:"Stairway, Junior Site",
+      desc:"Freshen up the stairway walls with masonry paint. A bit of stretching and reaching involved — a good active job!",
+      time:"3 hrs", people:"1–2 people", tools:"Masonry paint, brushes, roller, dust sheet, gloves" },
+
+    { id:19, status:"todo", site:"Junior", title:"Skip Loading – Locked Area Clearout", category:"Heavy Lifting",
+      location:"Locked area by Sam's Shed",
+      desc:"The locked area near Sam's Shed is packed with old junk that needs loading into a skip. The more the merrier for this one — bring your energy!",
+      time:"2 hrs", people:"2 people", tools:"Gloves, sturdy footwear, strong arms!" },
+
+    { id:20, status:"todo", site:"Infant", title:"Wooden Bench & Sink — Repair and Paint", category:"Maintenance",
+      location:"Infant Site",
+      desc:"The wooden bench and sink area needs some basic repair work followed by a fresh coat of paint. A great job for someone with a bit of DIY confidence.",
+      time:"3 hrs", people:"2 people", tools:"Sandpaper, wood filler, exterior paint, brushes, gloves" },
+
+    { id:21, status:"todo", site:"Infant", title:"Ty Enfys Handrails & Spindles Painting", category:"Painting",
+      location:"Ty Enfys outdoor building",
+      desc:"Following the recent painting of the Ty Enfys outdoor building, the handrails and spindles still need finishing off. A neat, detailed paint job.",
+      time:"3 hrs", people:"1–2 people", tools:"Brushes, exterior paint, dust sheet, gloves" },
+
+    { id:22, status:"todo", site:"Infant", title:"Planting Area Tidy & Woodwork Painting", category:"Gardening",
+      location:"Infant Site",
+      desc:"The planting area needs weeding and tidying up, and the surrounding woodwork needs an extra coat of paint. A two-in-one job — good for a pair working together.",
+      time:"2 hrs", people:"2–3 people", tools:"Trowel, gloves, bags, brushes, exterior paint" },
+
+    { id:23, status:"todo", site:"Infant", title:"Main Reception Border Tidy", category:"Gardening",
+      location:"Path into Main Reception",
+      desc:"The border along the path into Main Reception needs tidying — dead daffodils to clear and rose bushes to prune back. A lovely gardening job in a prominent spot.",
+      time:"2 hrs", people:"1–2 people", tools:"Secateurs, gloves, bags, kneeling pad" },
+
+    { id:24, status:"todo", site:"Infant", title:"Playground Shed Painting (1)", category:"Painting",
+      location:"Infant playground",
+      desc:"The first of two sheds in the infant playground needs a fresh coat of paint. Rollers and brushes needed — a satisfying and visible result.",
+      time:"2 hrs", people:"2 people", tools:"Exterior paint, brushes, roller, dust sheet, gloves" },
+
+    { id:25, status:"todo", site:"Infant", title:"Playground Shed Painting (2)", category:"Painting",
+      location:"Infant playground",
+      desc:"The second shed in the infant playground also needs painting. Team up with whoever is tackling shed 1 and make a day of it!",
+      time:"2 hrs", people:"2 people", tools:"Exterior paint, brushes, roller, dust sheet, gloves" },
+
+    { id:26, status:"todo", site:"Infant", title:"Pirate Ship Area — Re-seed or Turf", category:"Gardening",
+      location:"Infant playground",
+      desc:"The land where the old pirate ship stood was removed last summer and is now in poor condition. Needs re-seeding or turfing to bring it back to life.",
+      time:"2 hrs", people:"3–4 people", tools:"Garden fork, rake, topsoil, grass seed or turf, gloves" },
+
+    { id:27, status:"todo", site:"Infant", title:"Infant Site Fencing — Painting", category:"Painting",
+      location:"Infant Site",
+      desc:"The fencing on the infant site needs a fresh coat of paint. Straightforward work with a big visual impact.",
+      time:"2 hrs", people:"2–3 people", tools:"Fence paint, brushes, roller, gloves, dust sheet" },
+
+    { id:28, status:"todo", site:"Infant", title:"Overgrown Bushes & Grass Cutback", category:"Clearance",
+      location:"Infant Site",
+      desc:"Overgrown bushes and grass throughout the infant site need cutting back. Good physical outdoor work — bring your shears!",
+      time:"2 hrs", people:"2–3 people", tools:"Shears / hedge trimmer, rake, gloves, bags" },
+
+    { id:29, status:"todo", site:"Infant", title:"Orchard Clearance", category:"Clearance",
+      location:"Orchard area, Infant Site",
+      desc:"The orchard area has become badly overgrown and needs a proper clearance. A great job for a team — satisfying work in a lovely part of the grounds.",
+      time:"4 hrs", people:"3–4 people", tools:"Loppers, shears, rake, gloves, bags" },
+
+    { id:30, status:"todo", site:"Infant", title:"Front Fencing — Large Painting Job", category:"Painting",
+      location:"Front of Infant Site",
+      desc:"A large expanse of wooden fencing at the front of the infant site needs painting. High visibility job — it'll make a great impression on everyone who passes!",
+      time:"2 hrs", people:"3–4 people", tools:"Fence paint, rollers, brushes, dust sheets, gloves" },
+
+    { id:31, status:"todo", site:"Infant", title:"Metal Gates — Rub Down & Paint", category:"Painting",
+      location:"Infant pathway",
+      desc:"The metal gates along the infant pathway need rubbing down and repainting. A job that needs a bit of care — good for someone who takes pride in a neat finish.",
+      time:"4 hrs", people:"1–2 people", tools:"Sandpaper, metal primer, metal paint, brushes, gloves" },
+];
+
+/* ───────── RENDER ───────── */
+const CAT_META = {
+    "Clearance":     { cls:"cat-clearance",    icon:"🍂" },
+    "Painting":      { cls:"cat-painting",     icon:"🎨" },
+    "Gardening":     { cls:"cat-gardening",    icon:"🌱" },
+    "Maintenance":   { cls:"cat-maintenance",  icon:"🛠" },
+    "Heavy Lifting": { cls:"cat-heavy",        icon:"💪" },
+};
+
+let activeStatus = "todo";
+let activeCat    = "all";
+
+function visibleJobs() {
+    return jobs.filter(j =>
+        j.status === activeStatus &&
+        (activeCat === "all" || j.category === activeCat)
+    );
+}
+
+function renderCounts() {
+    const totals = { todo:0, "in-progress":0, done:0 };
+    jobs.forEach(j => { totals[j.status] = (totals[j.status] || 0) + 1; });
+    document.getElementById("count-todo").textContent          = totals.todo;
+    document.getElementById("count-in-progress").textContent   = totals["in-progress"];
+    document.getElementById("count-done").textContent          = totals.done;
+}
+
+function renderJobs() {
+    const grid  = document.getElementById("jobs-grid");
+    const empty = document.getElementById("empty-state");
+    const list  = visibleJobs();
+
+    grid.innerHTML = "";
+
+    if (list.length === 0) {
+        grid.style.display  = "none";
+        empty.style.display = "block";
+        const emptyContent = {
+            "todo": {
+                icon: "🌟",
+                title: activeCat === "all" ? "All caught up!" : "Nothing in this category",
+                text:  activeCat === "all"
+                    ? "There's nothing to do here right now. Check back soon."
+                    : "Try another category, or come along and we'll find you something."
+            },
+            "in-progress": {
+                icon: "🌱",
+                title: "Nothing in progress right now",
+                text:  "Jobs being actively worked on will appear here."
+            },
+            "done": {
+                icon: "👏",
+                title: "Recently completed jobs will appear here",
+                text:  "Once we've finished a job we'll move it across so you can see what's been getting done."
+            }
+        }[activeStatus];
+        document.getElementById("empty-icon").textContent  = emptyContent.icon;
+        document.getElementById("empty-title").textContent = emptyContent.title;
+        document.getElementById("empty-text").textContent  = emptyContent.text;
+        return;
+    }
+
+    grid.style.display  = "grid";
+    empty.style.display = "none";
+
+    list.forEach(j => {
+        const meta = CAT_META[j.category] || { cls:"cat-clearance", icon:"🌿" };
+        const card = document.createElement("div");
+        card.className = "job-card";
+        card.dataset.status = j.status;
+        card.dataset.id     = j.id;
+
+        // Thumb: real image if `img` present, else category-colored placeholder
+        const thumbHTML = j.img
+            ? `<div class="job-thumb"><img src="${j.img}" alt="${j.title}"></div>`
+            : `<div class="job-thumb placeholder ${meta.cls}"><span class="ph-icon">${meta.icon}</span></div>`;
+
+        card.innerHTML = `
+            ${thumbHTML.replace('<div class="job-thumb', `<div class="job-thumb`)}
+            <div class="job-body">
+                <span class="job-cat ${meta.cls}-text">${j.category}</span>
+                <div class="job-title">${j.title}</div>
+                <div class="job-location">📍 ${j.location}</div>
+                <div class="job-desc">${j.desc}</div>
+                <div class="job-meta">
+                    <span class="meta-tag">⏱ ${j.time}</span>
+                    <span class="meta-tag">👥 ${j.people}</span>
+                </div>
+                ${j.completedOn ? `<div class="done-stamp">✓ Completed ${j.completedOn}</div>` : ""}
+            </div>
+        `;
+
+        // Add job number + site badge inside the thumb
+        const thumb = card.querySelector(".job-thumb");
+        const numEl = document.createElement("span");
+        numEl.className = "job-num";
+        numEl.textContent = `#${j.id}`;
+        thumb.appendChild(numEl);
+
+        if (j.status === "todo") {
+            const siteEl = document.createElement("span");
+            siteEl.className = "job-site-badge";
+            siteEl.textContent = j.site === "Junior" ? "Junior" : "Infant";
+            thumb.appendChild(siteEl);
+        }
+
+        // Lightbox trigger
+        card.addEventListener("click", () => openLightbox(j));
+
+        grid.appendChild(card);
+    });
+}
+
+/* ───────── TABS + FILTERS ───────── */
+document.querySelectorAll(".tab").forEach(btn => {
+    btn.addEventListener("click", () => {
+        document.querySelectorAll(".tab").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        activeStatus = btn.dataset.status;
+        renderJobs();
+    });
+});
+
+document.querySelectorAll(".cat-chip").forEach(btn => {
+    btn.addEventListener("click", () => {
+        document.querySelectorAll(".cat-chip").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        activeCat = btn.dataset.cat;
+        renderJobs();
+    });
+});
+
+/* ───────── LIGHTBOX ───────── */
+const lightbox      = document.getElementById("lightbox");
+const lightboxMedia = document.getElementById("lightbox-media");
+const lightboxTitle = document.getElementById("lightbox-title");
+const lightboxLoc   = document.getElementById("lightbox-location");
+const lightboxDesc  = document.getElementById("lightbox-desc");
+const lightboxMeta  = document.getElementById("lightbox-meta");
+const lightboxClose = document.getElementById("lightbox-close");
+
+function openLightbox(j) {
+    const meta = CAT_META[j.category] || { cls:"cat-clearance", icon:"🌿" };
+
+    lightboxMedia.innerHTML = j.img
+        ? `<img class="lightbox-img" src="${j.img}" alt="${j.title}">`
+        : `<div class="lightbox-img-placeholder ${meta.cls}">${meta.icon}</div>`;
+
+    lightboxTitle.textContent = j.title;
+    lightboxLoc.textContent   = `📍 ${j.location} · ${j.site} site`;
+    lightboxDesc.textContent  = j.desc;
+    lightboxMeta.innerHTML    = `
+        <span class="meta-tag">⏱ ${j.time}</span>
+        <span class="meta-tag">👥 ${j.people}</span>
+        <span class="meta-tag">🔨 ${j.tools}</span>
+        ${j.completedOn ? `<span class="meta-tag" style="background:var(--green-soft);color:var(--green-deep);border-color:var(--green);">✓ Done ${j.completedOn}</span>` : ""}
+    `;
+    lightbox.classList.add("open");
+    document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+    lightbox.classList.remove("open");
+    document.body.style.overflow = "";
+}
+
+lightboxClose.addEventListener("click", closeLightbox);
+lightbox.addEventListener("click", e => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
+
+/* ───────── CONTACT FORM ───────── */
+// Works on Netlify (which it's already deployed to): the data-netlify="true"
+// attribute makes Netlify intercept submissions automatically. You'll need to
+// add a notification email in: Netlify dashboard → Forms → Settings →
+// Form notifications → "Email" → bretmorton@gmail.com.
+//
+// In the editor preview the POST won't actually fire, so we show the success
+// message client-side for demo purposes.
+const form = document.getElementById("contact-form");
+const success = document.getElementById("form-success");
+
+form.addEventListener("submit", e => {
+    // On Netlify, the form submits normally. Show success after a tick.
+    // (If you'd prefer a redirect to a thank-you page, add `action="/thanks"`.)
+    setTimeout(() => {
+        success.classList.add("show");
+        form.querySelectorAll("input, textarea, button").forEach(el => el.disabled = true);
+    }, 50);
+});
+
+/* ───────── INIT ───────── */
+renderCounts();
+renderJobs();
+</script>
+
+</body>
+</html>
