@@ -99,7 +99,7 @@ header.site-header {
     padding: 26px 28px 24px;
     position: relative;
     box-shadow: 6px 6px 0 var(--ink);
-    text-align: left;
+    text-align: center;
 }
 
 .next-event .eyebrow {
@@ -175,6 +175,7 @@ header.site-header {
     font-weight: 700;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -664,6 +665,215 @@ header.site-header {
 
 .done-stamp { display: none; }
 
+/* ───────────── STORY / PAST EVENTS ───────────── */
+.story {
+    padding: 24px 24px 56px;
+    background: var(--cream);
+}
+
+.story-head {
+    max-width: 880px;
+    margin: 0 auto 32px;
+    text-align: center;
+}
+
+.story-eyebrow {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    margin-bottom: 4px;
+}
+
+.story-title {
+    font-size: clamp(1.8rem, 4.4vw, 2.4rem);
+    font-weight: 900;
+    color: var(--ink);
+    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+}
+
+.story-intro {
+    max-width: 680px;
+    margin: 0 auto;
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+    line-height: 1.7;
+}
+
+.timeline {
+    max-width: 880px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 32px;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 11px;
+    top: 12px;
+    bottom: 12px;
+    width: 3px;
+    background: repeating-linear-gradient(to bottom, var(--green) 0 8px, transparent 8px 14px);
+    border-radius: 3px;
+}
+
+.event {
+    position: relative;
+    margin-bottom: 36px;
+}
+
+.event:last-child { margin-bottom: 0; }
+
+.event::before {
+    content: "";
+    position: absolute;
+    left: -32px;
+    top: 8px;
+    width: 25px; height: 25px;
+    border-radius: 50%;
+    background: var(--cream-card);
+    border: 3px solid var(--green-deep);
+    box-shadow: 0 0 0 4px var(--cream);
+    z-index: 1;
+}
+
+.event.future::before { border-color: var(--yellow); border-style: dashed; }
+.event.now::before { border-color: var(--blue); background: var(--blue); }
+
+.event-date {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.4rem;
+    color: var(--green-deep);
+    line-height: 1;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.event.future .event-date { color: #a07c00; }
+.event.now .event-date { color: var(--blue); }
+
+.event-date .label {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--ink-faint);
+    background: var(--cream-soft);
+    padding: 3px 10px;
+    border-radius: var(--radius-chip);
+    border: 1px solid var(--line);
+}
+
+.event.now .event-date .label {
+    background: var(--blue);
+    color: white;
+    border-color: var(--blue);
+}
+
+.event-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 8px;
+}
+
+.event-desc {
+    font-size: 0.94rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin-bottom: 12px;
+}
+
+.event-photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.event-photo {
+    aspect-ratio: 4 / 3;
+    background: var(--cream-soft);
+    border: 1.5px dashed var(--line);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-faint);
+    font-size: 0.78rem;
+    font-weight: 700;
+    overflow: hidden;
+    position: relative;
+}
+
+.event-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.event-photo .ph {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    opacity: 0.6;
+}
+
+.event-photo .ph .ico { font-size: 1.4rem; }
+
+.story-thanks {
+    max-width: 880px;
+    margin: 40px auto 0;
+    padding: 24px 28px;
+    background: var(--cream-soft);
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius-card);
+    text-align: center;
+}
+
+.story-thanks h4 {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.3rem;
+    color: var(--ink);
+    margin-bottom: 12px;
+}
+
+.story-thanks p {
+    color: var(--ink-soft);
+    font-size: 0.94rem;
+    line-height: 1.7;
+}
+
+.thanks-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    margin-top: 14px;
+}
+
+.thanks-list .pill {
+    background: var(--cream-card);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: var(--radius-chip);
+}
+
+@media (max-width: 520px) {
+    .timeline { padding-left: 26px; }
+    .event::before { left: -26px; width: 20px; height: 20px; }
+    .event-photos { grid-template-columns: repeat(2, 1fr); }
+}
+
 /* ───────────── CONTACT ───────────── */
 .contact {
     padding: 56px 24px 64px;
@@ -909,7 +1119,7 @@ footer.site-footer .small { font-size: 0.78rem; }
 
 <!-- ───────── HEADER ───────── -->
 <header class="site-header">
-    <img class="logo" src="logo.png" alt="The Tidy Team — Ysgol Llandrillo Yn Rhos">
+    <img class="logo" src="logo.png?v=2" alt="The Tidy Team — Ysgol Llandrillo Yn Rhos">
 </header>
 
 <!-- ───────── HERO ───────── -->
@@ -928,7 +1138,7 @@ footer.site-footer .small { font-size: 0.78rem; }
             </div>
             <div class="cell">
                 <div class="label">📍 Where</div>
-                <div class="value">Ysgol Llandrillo<br>Yn Rhos</div>
+                <div class="value">Meeting point<br>Infants site</div>
             </div>
             <div class="cell">
                 <div class="label">🎟 Joining</div>
@@ -938,7 +1148,7 @@ footer.site-footer .small { font-size: 0.78rem; }
 
         <div class="turn-up">
             <span class="dot"></span>
-            Bring gloves if you've got them — everything else is provided.
+            Bring gloves and any basic gardening tools you've got — rakes, trowels, secateurs all welcome. Anything else is provided.
         </div>
     </div>
 
@@ -948,33 +1158,11 @@ footer.site-footer .small { font-size: 0.78rem; }
 <!-- ───────── ABOUT ───────── -->
 <section class="about">
     <div class="about-inner">
-        <h3>What's <span class="accent">The Tidy Team?</span></h3>
-        <p>A standing crew of parents, neighbours and friends who get together once a month to keep the school grounds in good shape — gardening, painting, tidying, the occasional bigger job. No experience needed, and you don't need to commit to every session. Come for the morning, stay an hour, do what you fancy.</p>
-        <p>It's run by parents, not the school. The kettle's always on.</p>
-
-        <div class="about-points">
-            <div class="about-point">
-                <span class="ico">☕</span>
-                <span class="txt">
-                    <strong>Tea &amp; coffee on tap</strong>
-                    <span>And usually a biscuit or two.</span>
-                </span>
-            </div>
-            <div class="about-point">
-                <span class="ico">🛠</span>
-                <span class="txt">
-                    <strong>Bring tools if you can</strong>
-                    <span>Rakes, gloves, trowels — anything helps.</span>
-                </span>
-            </div>
-            <div class="about-point">
-                <span class="ico">👶</span>
-                <span class="txt">
-                    <strong>Kids welcome</strong>
-                    <span>Plenty for little hands to do too.</span>
-                </span>
-            </div>
-        </div>
+        <h3>Who are <span class="accent">The Tidy Team?</span></h3>
+        <p>We're a group of parents, governors, and local volunteers who care about Ysgol Llandrillo Yn Rhos — and want it to look its best.</p>
+        <p>The school is a brilliant place. But keeping the site in good shape takes more than the staff can manage on their own. So we show up on the first Sunday of every month, roll our sleeves up, and get things done — painting, gardening, tidying, fixing.</p>
+        <p>No experience needed. No commitment required. Just turn up when you can.</p>
+        <p>We're always looking for more hands. The more people who join us, the more we can do — and the better the school looks for the kids who spend their days there.</p>
     </div>
 </section>
 
@@ -1011,6 +1199,18 @@ footer.site-footer .small { font-size: 0.78rem; }
         <h4 id="empty-title">Nothing here yet</h4>
         <p id="empty-text">Check back after the next session.</p>
     </div>
+</section>
+
+<!-- ───────── STORY / PAST EVENTS ───────── -->
+<section class="story" id="story">
+    <div class="story-head">
+        <p class="story-eyebrow">Our story so far</p>
+        <h2 class="story-title">How we got here</h2>
+        <p class="story-intro">
+            The Tidy Team grew out of a series of Community Gardening Days held at the school since late 2024. Each one brought together pupils, parents, families and friends from across the local community. Together we've cleared, planted, tidied and slowly transformed the grounds — and built something that's outgrown the one-off format. From June 2026 onwards, we're going monthly.
+        </p>
+    </div>
+
 </section>
 
 <!-- ───────── CONTACT ───────── -->
@@ -1051,7 +1251,7 @@ footer.site-footer .small { font-size: 0.78rem; }
 <!-- ───────── FOOTER ───────── -->
 <footer class="site-footer">
     <p><strong>Ysgol Llandrillo Yn Rhos · The Tidy Team</strong></p>
-    <p class="small">First Sunday of every month · 10am – 1pm · Run by parents</p>
+    <p class="small">First Sunday of every month · 10am – 1pm</p>
 </footer>
 
 <!-- ───────── LIGHTBOX ───────── -->
@@ -1078,147 +1278,147 @@ footer.site-footer .small { font-size: 0.78rem; }
    Add `img` to give a job a real photo file path.
    ───────────────────────────────────────────────── */
 const jobs = [
-    { id:1,  status:"todo", site:"Junior", title:"Hall Front Clearance", category:"Clearance",
+    { id:1,  status:"todo", site:"Junior", img:"photos/jobs/1.jpg", title:"Hall Front Clearance", category:"Clearance",
       location:"Outside the front of the Hall",
       desc:"Remove bricks, leaves, overgrown vegetation and ivy from the area outside the front of the Hall. A great team job to kick things off!",
       time:"1 hr", people:"2 people", tools:"Gloves, rake, wheelbarrow" },
 
-    { id:2,  status:"todo", site:"Junior", title:"Debris Removal & Fence Painting", category:"Painting",
+    { id:2,  status:"todo", site:"Junior", img:"photos/jobs/2.jpg", title:"Debris Removal & Fence Painting", category:"Painting",
       location:"Junior Site",
       desc:"Clear debris from the area then give the wooden fencing a fresh coat of paint. A really satisfying before-and-after job.",
       time:"2 hrs", people:"2–3 people", tools:"Rake, gloves, paintbrushes, fence paint" },
 
-    { id:3,  status:"todo", site:"Junior", title:"Recycling Area Clearance", category:"Clearance",
+    { id:3,  status:"todo", site:"Junior", img:"photos/jobs/3.jpg", title:"Recycling Area Clearance", category:"Clearance",
       location:"Dragon Bags recycling bin area",
       desc:"Clear overgrown vegetation from around the Dragon Bags recycling bin. A quick job that makes a big difference.",
       time:"15 mins", people:"1–2 people", tools:"Gloves, shears, small rake" },
 
-    { id:4,  status:"todo", site:"Junior", title:"Old Furniture Removal", category:"Heavy Lifting",
+    { id:4,  status:"todo", site:"Junior", img:"photos/jobs/4.jpg", title:"Old Furniture Removal", category:"Heavy Lifting",
       location:"Junior Site",
       desc:"Remove old unwanted furniture from the site. You'll need to be comfortable with heavy lifting — team up and make light work of it!",
       time:"15 mins", people:"3–4 people", tools:"Gloves, sturdy footwear" },
 
-    { id:6,  status:"todo", site:"Junior", title:"General Vegetation Clearance", category:"Clearance",
+    { id:6,  status:"todo", site:"Junior", img:"photos/jobs/6.jpg", title:"General Vegetation Clearance", category:"Clearance",
       location:"Junior Site",
       desc:"Remove leaves and rubbish, and cut back overgrown vegetation across the site. Classic outdoor work — fresh air included!",
       time:"2 hrs", people:"3–4 people", tools:"Gloves, shears, rake, bags" },
 
-    { id:7,  status:"todo", site:"Junior", title:"Branch & Leaf Removal", category:"Clearance",
+    { id:7,  status:"todo", site:"Junior", img:"photos/jobs/7.jpg", title:"Branch & Leaf Removal", category:"Clearance",
       location:"Junior Site",
       desc:"Clear old fallen branches and built-up leaf litter from around the site. Good outdoor physical work.",
       time:"1 hr", people:"2–3 people", tools:"Gloves, loppers, rake, bags" },
 
-    { id:9,  status:"todo", site:"Junior", title:"Moss & Leaf Clearance", category:"Clearance",
+    { id:9,  status:"todo", site:"Junior", img:"photos/jobs/9.jpg", title:"Moss & Leaf Clearance", category:"Clearance",
       location:"Junior Site",
       desc:"Scrub away moss build-up and sweep accumulated leaves from pathways and surfaces around the site.",
       time:"1 hr", people:"2 people", tools:"Stiff brush, rake, gloves, bags" },
 
-    { id:10, status:"todo", site:"Junior", title:"Wall Stain Painting", category:"Painting",
+    { id:10, status:"todo", site:"Junior", img:"photos/jobs/10.jpg", title:"Wall Stain Painting", category:"Painting",
       location:"Junior Site",
       desc:"Paint over stains on the wall left by old flue guards. A steady hand and a bit of patience is all you need.",
       time:"1 hr", people:"1–2 people", tools:"Exterior masonry paint, brushes, dust sheet" },
 
-    { id:11, status:"todo", site:"Junior", title:"Sam's Shed – Side Clearance", category:"Clearance",
+    { id:11, status:"todo", site:"Junior", img:"photos/jobs/11.jpg", title:"Sam's Shed – Side Clearance", category:"Clearance",
       location:"Side of Sam's Shed",
       desc:"Clear overgrown vegetation and leaves from the area at the side of Sam's Shed. Straightforward clearance work — gloves and a rake required.",
       time:"1 hr", people:"2 people", tools:"Gloves, rake, shears, bags" },
 
-    { id:12, status:"todo", site:"Junior", title:"Sam's Shed – Platform Clearance", category:"Clearance",
+    { id:12, status:"todo", site:"Junior", img:"photos/jobs/12.jpg", title:"Sam's Shed – Platform Clearance", category:"Clearance",
       location:"Next to Sam's Shed platform",
       desc:"Clear moss, overgrown vegetation and leaves from the area next to the Sam's Shed platform. A satisfying tidy-up job.",
       time:"1 hr", people:"2 people", tools:"Stiff brush, rake, gloves, shears" },
 
-    { id:13, status:"todo", site:"Junior", title:"Leaf Build-up Clearance", category:"Clearance",
+    { id:13, status:"todo", site:"Junior", img:"photos/jobs/13.jpg", title:"Leaf Build-up Clearance", category:"Clearance",
       location:"Junior Site",
       desc:"Clear a significant build-up of leaves and debris. Grab a rake and get stuck in — this one is very satisfying once done!",
       time:"1 hr", people:"2 people", tools:"Rake, gloves, bags" },
 
-    { id:14, status:"todo", site:"Junior", title:"Picnic Table Restoration", category:"Painting",
+    { id:14, status:"todo", site:"Junior", img:"photos/jobs/14.jpg", title:"Picnic Table Restoration", category:"Painting",
       location:"Junior Site",
       desc:"Sand down and repaint the picnic tables so they're looking fresh for the children. A really rewarding transformation you'll be able to see every day.",
       time:"4 hrs", people:"2–3 people", tools:"Sandpaper / orbital sander, wood paint or stain, brushes, gloves" },
 
-    { id:15, status:"todo", site:"Junior", title:"Planting Area Weeding", category:"Gardening",
+    { id:15, status:"todo", site:"Junior", img:"photos/jobs/15.jpg", title:"Planting Area Weeding", category:"Gardening",
       location:"Planting borders, Junior Site",
       desc:"Get your hands in the soil and weed the planting borders. Perfect for anyone who enjoys proper gardening — bring your trowel!",
       time:"2 hrs", people:"2–3 people", tools:"Trowel, gloves, kneeling pad, bags" },
 
-    { id:16, status:"todo", site:"Junior", title:"Moss Removal & Picnic Table Attention", category:"Clearance",
+    { id:16, status:"todo", site:"Junior", img:"photos/jobs/16.jpg", title:"Moss Removal & Picnic Table Attention", category:"Clearance",
       location:"Junior Site",
       desc:"Remove moss from surfaces and give the picnic tables in this area a good clean and tidy. A great job for a couple of people working together.",
       time:"2 hrs", people:"2 people", tools:"Stiff brush, scraper, gloves, cleaning solution" },
 
-    { id:17, status:"todo", site:"Junior", title:"Low Level Wall Painting", category:"Painting",
+    { id:17, status:"todo", site:"Junior", img:"photos/jobs/17.jpg", title:"Low Level Wall Painting", category:"Painting",
       location:"Junior Site",
       desc:"Apply a fresh coat of masonry paint to the low level walls around the site. Rollers make quick work of this — a satisfying job.",
       time:"3 hrs", people:"2–3 people", tools:"Masonry paint, rollers, brushes, dust sheets, gloves" },
 
-    { id:18, status:"todo", site:"Junior", title:"Stairway Wall Painting", category:"Painting",
+    { id:18, status:"todo", site:"Junior", img:"photos/jobs/18.jpg", title:"Stairway Wall Painting", category:"Painting",
       location:"Stairway, Junior Site",
       desc:"Freshen up the stairway walls with masonry paint. A bit of stretching and reaching involved — a good active job!",
       time:"3 hrs", people:"1–2 people", tools:"Masonry paint, brushes, roller, dust sheet, gloves" },
 
-    { id:19, status:"todo", site:"Junior", title:"Skip Loading – Locked Area Clearout", category:"Heavy Lifting",
+    { id:19, status:"todo", site:"Junior", img:"photos/jobs/19.jpg", title:"Skip Loading – Locked Area Clearout", category:"Heavy Lifting",
       location:"Locked area by Sam's Shed",
       desc:"The locked area near Sam's Shed is packed with old junk that needs loading into a skip. The more the merrier for this one — bring your energy!",
       time:"2 hrs", people:"2 people", tools:"Gloves, sturdy footwear, strong arms!" },
 
-    { id:20, status:"todo", site:"Infant", title:"Wooden Bench & Sink — Repair and Paint", category:"Maintenance",
+    { id:20, status:"todo", site:"Infant", img:"photos/jobs/20.jpg", title:"Wooden Bench & Sink — Repair and Paint", category:"Maintenance",
       location:"Infant Site",
       desc:"The wooden bench and sink area needs some basic repair work followed by a fresh coat of paint. A great job for someone with a bit of DIY confidence.",
       time:"3 hrs", people:"2 people", tools:"Sandpaper, wood filler, exterior paint, brushes, gloves" },
 
-    { id:21, status:"todo", site:"Infant", title:"Ty Enfys Handrails & Spindles Painting", category:"Painting",
+    { id:21, status:"todo", site:"Infant", img:"photos/jobs/21.jpg", title:"Ty Enfys Handrails & Spindles Painting", category:"Painting",
       location:"Ty Enfys outdoor building",
       desc:"Following the recent painting of the Ty Enfys outdoor building, the handrails and spindles still need finishing off. A neat, detailed paint job.",
       time:"3 hrs", people:"1–2 people", tools:"Brushes, exterior paint, dust sheet, gloves" },
 
-    { id:22, status:"todo", site:"Infant", title:"Planting Area Tidy & Woodwork Painting", category:"Gardening",
+    { id:22, status:"todo", site:"Infant", img:"photos/jobs/22.jpg", title:"Planting Area Tidy & Woodwork Painting", category:"Gardening",
       location:"Infant Site",
       desc:"The planting area needs weeding and tidying up, and the surrounding woodwork needs an extra coat of paint. A two-in-one job — good for a pair working together.",
       time:"2 hrs", people:"2–3 people", tools:"Trowel, gloves, bags, brushes, exterior paint" },
 
-    { id:23, status:"todo", site:"Infant", title:"Main Reception Border Tidy", category:"Gardening",
+    { id:23, status:"todo", site:"Infant", img:"photos/jobs/23.jpg", title:"Main Reception Border Tidy", category:"Gardening",
       location:"Path into Main Reception",
       desc:"The border along the path into Main Reception needs tidying — dead daffodils to clear and rose bushes to prune back. A lovely gardening job in a prominent spot.",
       time:"2 hrs", people:"1–2 people", tools:"Secateurs, gloves, bags, kneeling pad" },
 
-    { id:24, status:"todo", site:"Infant", title:"Playground Shed Painting (1)", category:"Painting",
+    { id:24, status:"todo", site:"Infant", img:"photos/jobs/24.jpg", title:"Playground Shed Painting (1)", category:"Painting",
       location:"Infant playground",
       desc:"The first of two sheds in the infant playground needs a fresh coat of paint. Rollers and brushes needed — a satisfying and visible result.",
       time:"2 hrs", people:"2 people", tools:"Exterior paint, brushes, roller, dust sheet, gloves" },
 
-    { id:25, status:"todo", site:"Infant", title:"Playground Shed Painting (2)", category:"Painting",
+    { id:25, status:"todo", site:"Infant", img:"photos/jobs/25.jpg", title:"Playground Shed Painting (2)", category:"Painting",
       location:"Infant playground",
       desc:"The second shed in the infant playground also needs painting. Team up with whoever is tackling shed 1 and make a day of it!",
       time:"2 hrs", people:"2 people", tools:"Exterior paint, brushes, roller, dust sheet, gloves" },
 
-    { id:26, status:"todo", site:"Infant", title:"Pirate Ship Area — Re-seed or Turf", category:"Gardening",
+    { id:26, status:"todo", site:"Infant", img:"photos/jobs/26.jpg", title:"Pirate Ship Area — Re-seed or Turf", category:"Gardening",
       location:"Infant playground",
       desc:"The land where the old pirate ship stood was removed last summer and is now in poor condition. Needs re-seeding or turfing to bring it back to life.",
       time:"2 hrs", people:"3–4 people", tools:"Garden fork, rake, topsoil, grass seed or turf, gloves" },
 
-    { id:27, status:"todo", site:"Infant", title:"Infant Site Fencing — Painting", category:"Painting",
+    { id:27, status:"todo", site:"Infant", img:"photos/jobs/27.jpg", title:"Infant Site Fencing — Painting", category:"Painting",
       location:"Infant Site",
       desc:"The fencing on the infant site needs a fresh coat of paint. Straightforward work with a big visual impact.",
       time:"2 hrs", people:"2–3 people", tools:"Fence paint, brushes, roller, gloves, dust sheet" },
 
-    { id:28, status:"todo", site:"Infant", title:"Overgrown Bushes & Grass Cutback", category:"Clearance",
+    { id:28, status:"todo", site:"Infant", img:"photos/jobs/28.jpg", title:"Overgrown Bushes & Grass Cutback", category:"Clearance",
       location:"Infant Site",
       desc:"Overgrown bushes and grass throughout the infant site need cutting back. Good physical outdoor work — bring your shears!",
       time:"2 hrs", people:"2–3 people", tools:"Shears / hedge trimmer, rake, gloves, bags" },
 
-    { id:29, status:"todo", site:"Infant", title:"Orchard Clearance", category:"Clearance",
+    { id:29, status:"todo", site:"Infant", img:"photos/jobs/29.jpg", title:"Orchard Clearance", category:"Clearance",
       location:"Orchard area, Infant Site",
       desc:"The orchard area has become badly overgrown and needs a proper clearance. A great job for a team — satisfying work in a lovely part of the grounds.",
       time:"4 hrs", people:"3–4 people", tools:"Loppers, shears, rake, gloves, bags" },
 
-    { id:30, status:"todo", site:"Infant", title:"Front Fencing — Large Painting Job", category:"Painting",
+    { id:30, status:"todo", site:"Infant", img:"photos/jobs/30.jpg", title:"Front Fencing — Large Painting Job", category:"Painting",
       location:"Front of Infant Site",
       desc:"A large expanse of wooden fencing at the front of the infant site needs painting. High visibility job — it'll make a great impression on everyone who passes!",
       time:"2 hrs", people:"3–4 people", tools:"Fence paint, rollers, brushes, dust sheets, gloves" },
 
-    { id:31, status:"todo", site:"Infant", title:"Metal Gates — Rub Down & Paint", category:"Painting",
+    { id:31, status:"todo", site:"Infant", img:"photos/jobs/31.jpg", title:"Metal Gates — Rub Down & Paint", category:"Painting",
       location:"Infant pathway",
       desc:"The metal gates along the infant pathway need rubbing down and repainting. A job that needs a bit of care — good for someone who takes pride in a neat finish.",
       time:"4 hrs", people:"1–2 people", tools:"Sandpaper, metal primer, metal paint, brushes, gloves" },
