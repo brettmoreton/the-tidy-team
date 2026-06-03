@@ -665,6 +665,121 @@ header.site-header {
 
 .done-stamp { display: none; }
 
+/* ───────────── PRIORITIES STRIP ───────────── */
+.priorities {
+    margin: 26px 0 8px;
+    padding: 22px 22px 24px;
+    background: var(--green-soft);
+    border: 1.5px solid var(--green);
+    border-radius: var(--radius-card);
+}
+
+.priorities-head { margin-bottom: 18px; }
+
+.priorities-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--green-deep);
+    padding: 5px 12px;
+    border-radius: var(--radius-chip);
+}
+
+.priorities-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--green-deep);
+    margin-top: 12px;
+    line-height: 1.15;
+}
+
+.priorities-sub {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    max-width: 620px;
+    margin-top: 6px;
+    text-wrap: pretty;
+}
+
+.priorities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 18px;
+}
+
+.priority-card {
+    display: flex;
+    background: var(--cream-card);
+    border: 2px solid var(--green);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: var(--shadow-card);
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.priority-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+.priority-thumb {
+    width: 150px;
+    flex-shrink: 0;
+    position: relative;
+    background: var(--green-soft);
+}
+
+.priority-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.priority-thumb.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.priority-thumb.placeholder .ph-icon {
+    font-size: 2.6rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.18));
+}
+
+.priority-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: var(--green-deep);
+    color: #fff;
+    font-size: 0.66rem;
+    font-weight: 900;
+    letter-spacing: 0.4px;
+    padding: 4px 9px;
+    border-radius: var(--radius-chip);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.priority-body {
+    padding: 15px 18px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+@media (max-width: 520px) {
+    .priorities-grid { grid-template-columns: 1fr; }
+    .priority-card { flex-direction: column; }
+    .priority-thumb { width: 100%; height: 150px; }
+}
+
 /* ───────────── STORY / PAST EVENTS ───────────── */
 .story {
     padding: 24px 24px 56px;
@@ -1129,7 +1244,7 @@ footer.site-footer .small { font-size: 0.78rem; }
     <div class="next-event">
         <div class="eyebrow">📣 Next session</div>
         <h2><span class="blue">Sunday</span> <span class="green">7th June</span></h2>
-        <div class="when"><strong>10am – 1pm</strong> · at the school</div>
+        <div class="when">10am – 1pm</div>
 
         <div class="next-event-row">
             <div class="cell">
@@ -1146,10 +1261,7 @@ footer.site-footer .small { font-size: 0.78rem; }
             </div>
         </div>
 
-        <div class="turn-up">
-            <span class="dot"></span>
-            Bring gloves and any basic gardening tools you've got — rakes, trowels, secateurs all welcome. Anything else is provided.
-        </div>
+        <div class="turn-up">Do bring gloves and any basic gardening tools you've got along with you</div>
     </div>
 
     <p class="cadence-note">We meet the first Sunday of every month</p>
@@ -1173,8 +1285,18 @@ footer.site-footer .small { font-size: 0.78rem; }
         <h2 class="board-title">Jobs that need doing</h2>
         <p class="board-sub">
             A running list. Pick one, several, or just turn up and we'll point you somewhere.
-            <span class="updated">↻ Updated 27 May 2026</span>
+            <span class="updated">↻ Updated 3 June 2026</span>
         </p>
+
+        <!-- Priorities for this Sunday -->
+        <div class="priorities" id="priorities">
+            <div class="priorities-head">
+                <p class="priorities-eyebrow">⭐ This Sunday's focus</p>
+                <h3 class="priorities-title">Priorities for Sunday 7 June</h3>
+                <p class="priorities-sub">If you can spare some time, these are the two jobs we'd love to get finished first. </p>
+            </div>
+            <div class="priorities-grid" id="priorities-grid"></div>
+        </div>
 
         <div class="tabs" id="tabs">
             <button class="tab active" data-status="todo">✏️ Needs doing <span class="count" id="count-todo">0</span></button>
@@ -1278,7 +1400,7 @@ footer.site-footer .small { font-size: 0.78rem; }
    Add `img` to give a job a real photo file path.
    ───────────────────────────────────────────────── */
 const jobs = [
-    { id:1,  status:"todo", site:"Junior", img:"photos/jobs/1.jpg", title:"Hall Front Clearance", category:"Clearance",
+    { id:1,  status:"done", site:"Junior", img:"photos/jobs/1.jpg", title:"Hall Front Clearance", category:"Clearance",
       location:"Outside the front of the Hall",
       desc:"Remove bricks, leaves, overgrown vegetation and ivy from the area outside the front of the Hall. A great team job to kick things off!",
       time:"1 hr", people:"2 people", tools:"Gloves, rake, wheelbarrow" },
@@ -1288,17 +1410,17 @@ const jobs = [
       desc:"Clear debris from the area then give the wooden fencing a fresh coat of paint. A really satisfying before-and-after job.",
       time:"2 hrs", people:"2–3 people", tools:"Rake, gloves, paintbrushes, fence paint" },
 
-    { id:3,  status:"todo", site:"Junior", img:"photos/jobs/3.jpg", title:"Recycling Area Clearance", category:"Clearance",
+    { id:3,  status:"done", site:"Junior", img:"photos/jobs/3.jpg", title:"Recycling Area Clearance", category:"Clearance",
       location:"Dragon Bags recycling bin area",
       desc:"Clear overgrown vegetation from around the Dragon Bags recycling bin. A quick job that makes a big difference.",
       time:"15 mins", people:"1–2 people", tools:"Gloves, shears, small rake" },
 
-    { id:4,  status:"todo", site:"Junior", img:"photos/jobs/4.jpg", title:"Old Furniture Removal", category:"Heavy Lifting",
+    { id:4,  status:"done", site:"Junior", img:"photos/jobs/4.jpg", title:"Old Furniture Removal", category:"Heavy Lifting",
       location:"Junior Site",
       desc:"Remove old unwanted furniture from the site. You'll need to be comfortable with heavy lifting — team up and make light work of it!",
       time:"15 mins", people:"3–4 people", tools:"Gloves, sturdy footwear" },
 
-    { id:6,  status:"todo", site:"Junior", img:"photos/jobs/6.jpg", title:"General Vegetation Clearance", category:"Clearance",
+    { id:6,  status:"done", site:"Junior", img:"photos/jobs/6.jpg", title:"General Vegetation Clearance", category:"Clearance",
       location:"Junior Site",
       desc:"Remove leaves and rubbish, and cut back overgrown vegetation across the site. Classic outdoor work — fresh air included!",
       time:"2 hrs", people:"3–4 people", tools:"Gloves, shears, rake, bags" },
@@ -1368,7 +1490,7 @@ const jobs = [
       desc:"The wooden bench and sink area needs some basic repair work followed by a fresh coat of paint. A great job for someone with a bit of DIY confidence.",
       time:"3 hrs", people:"2 people", tools:"Sandpaper, wood filler, exterior paint, brushes, gloves" },
 
-    { id:21, status:"todo", site:"Infant", img:"photos/jobs/21.jpg", title:"Ty Enfys Handrails & Spindles Painting", category:"Painting",
+    { id:21, status:"todo", priority:true, site:"Infant", img:"photos/jobs/21.jpg", title:"Ty Enfys Handrails & Spindles Painting", category:"Painting",
       location:"Ty Enfys outdoor building",
       desc:"Following the recent painting of the Ty Enfys outdoor building, the handrails and spindles still need finishing off. A neat, detailed paint job.",
       time:"3 hrs", people:"1–2 people", tools:"Brushes, exterior paint, dust sheet, gloves" },
@@ -1413,7 +1535,7 @@ const jobs = [
       desc:"The orchard area has become badly overgrown and needs a proper clearance. A great job for a team — satisfying work in a lovely part of the grounds.",
       time:"4 hrs", people:"3–4 people", tools:"Loppers, shears, rake, gloves, bags" },
 
-    { id:30, status:"todo", site:"Infant", img:"photos/jobs/30.jpg", title:"Front Fencing — Large Painting Job", category:"Painting",
+    { id:30, status:"todo", priority:true, site:"Infant", img:"photos/jobs/30.jpg", title:"Front Fencing — Large Painting Job", category:"Painting",
       location:"Front of Infant Site",
       desc:"A large expanse of wooden fencing at the front of the infant site needs painting. High visibility job — it'll make a great impression on everyone who passes!",
       time:"2 hrs", people:"3–4 people", tools:"Fence paint, rollers, brushes, dust sheets, gloves" },
@@ -1537,6 +1659,45 @@ function renderJobs() {
     });
 }
 
+/* ───────── PRIORITIES ───────── */
+function renderPriorities() {
+    const section = document.getElementById("priorities");
+    const grid    = document.getElementById("priorities-grid");
+    const pris    = jobs.filter(j => j.priority && j.status !== "done");
+
+    if (!pris.length) { section.style.display = "none"; return; }
+    section.style.display = "block";
+    grid.innerHTML = "";
+
+    pris.forEach(j => {
+        const meta = CAT_META[j.category] || { cls:"cat-clearance", icon:"🌿" };
+        const card = document.createElement("div");
+        card.className = "priority-card";
+
+        const thumbHTML = j.img
+            ? `<div class="priority-thumb"><img src="${j.img}" alt="${j.title}"><span class="priority-badge">⭐ Priority</span></div>`
+            : `<div class="priority-thumb placeholder ${meta.cls}"><span class="ph-icon">${meta.icon}</span><span class="priority-badge">⭐ Priority</span></div>`;
+
+        card.innerHTML = `
+            ${thumbHTML}
+            <div class="priority-body">
+                <span class="job-cat ${meta.cls}-text">${j.category}</span>
+                <div class="job-title">${j.title}</div>
+                <div class="job-location">📍 ${j.location} · ${j.site} site</div>
+                <div class="job-desc">${j.desc}</div>
+                <div class="job-meta">
+                    <span class="meta-tag">⏱ ${j.time}</span>
+                    <span class="meta-tag">👥 ${j.people}</span>
+                    <span class="meta-tag">#${j.id}</span>
+                </div>
+            </div>
+        `;
+
+        card.addEventListener("click", () => openLightbox(j));
+        grid.appendChild(card);
+    });
+}
+
 /* ───────── TABS + FILTERS ───────── */
 document.querySelectorAll(".tab").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -1616,6 +1777,7 @@ form.addEventListener("submit", e => {
 
 /* ───────── INIT ───────── */
 renderCounts();
+renderPriorities();
 renderJobs();
 </script>
 
