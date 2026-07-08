@@ -815,6 +815,33 @@ header.site-header {
     line-height: 1.7;
 }
 
+.fb-follow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px auto 0;
+    background: #1877f2;
+    color: #fff;
+    font-family: inherit;
+    font-weight: 800;
+    font-size: 0.98rem;
+    text-decoration: none;
+    padding: 12px 22px 12px 18px;
+    border-radius: var(--radius-chip);
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.fb-follow svg { flex-shrink: 0; }
+
+.fb-follow:hover {
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 0 var(--ink);
+    filter: brightness(1.05);
+}
+
 .timeline {
     max-width: 880px;
     margin: 0 auto;
@@ -1243,13 +1270,13 @@ footer.site-footer .small { font-size: 0.78rem; }
 
     <div class="next-event">
         <div class="eyebrow">📣 Next session</div>
-        <h2><span class="blue">Sunday</span> <span class="green">5th July</span></h2>
+        <h2><span class="blue">Sunday</span> <span class="green">2nd August</span></h2>
         <div class="when">10am – 1pm</div>
 
         <div class="next-event-row">
             <div class="cell">
                 <div class="label">📅 When</div>
-                <div class="value">Sun 5 July<br>10am – 1pm</div>
+                <div class="value">Sun 2 August<br>10am – 1pm</div>
             </div>
             <div class="cell">
                 <div class="label">📍 Where</div>
@@ -1285,15 +1312,15 @@ footer.site-footer .small { font-size: 0.78rem; }
         <h2 class="board-title">Jobs that need doing</h2>
         <p class="board-sub">
             A running list. Pick one, several, or just turn up and we'll point you somewhere.
-            <span class="updated">↻ Updated 12 June 2026</span>
+            <span class="updated">↻ Updated 8 July 2026</span>
         </p>
 
         <!-- Priorities for this Sunday -->
         <div class="priorities" id="priorities">
             <div class="priorities-head">
                 <p class="priorities-eyebrow">⭐ This Sunday's focus</p>
-                <h3 class="priorities-title">Priorities for Sunday 5 July</h3>
-                <p class="priorities-sub">If you can spare some time, these are the two jobs we'd love to get finished first. </p>
+                <h3 class="priorities-title">Priorities for Sunday 2 August</h3>
+                <p class="priorities-sub">Both got their first coat on 5 July — a second coat is all that’s left. If you can spare some time, these are the two we’d love to finish first.</p>
             </div>
             <div class="priorities-grid" id="priorities-grid"></div>
         </div>
@@ -1331,6 +1358,11 @@ footer.site-footer .small { font-size: 0.78rem; }
         <p class="story-intro">
             The Tidy Team grew out of a series of Community Gardening Days held at the school since late 2024. Each one brought together pupils, parents, families and friends from across the local community. Together we've cleared, planted, tidied and slowly transformed the grounds — and built something that's outgrown the one-off format. From June 2026 onwards, we're going monthly.
         </p>
+        <p class="story-intro" style="margin-top:18px;">Want to see what we get up to? We share updates from every session — before-and-afters, and photos of our volunteers hard at work. Come and follow along.</p>
+        <a class="fb-follow" href="https://www.facebook.com/profile.php?id=61590401082527" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.02 4.39 11.01 10.13 11.93v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.08 24 18.09 24 12.07Z"/></svg>
+            Follow us on Facebook
+        </a>
     </div>
 
 </section>
@@ -1405,7 +1437,7 @@ const jobs = [
       desc:"Remove bricks, leaves, overgrown vegetation and ivy from the area outside the front of the Hall. A great team job to kick things off!",
       time:"1 hr", people:"2 people", tools:"Gloves, rake, wheelbarrow" },
 
-    { id:2,  status:"todo", site:"Junior", img:"photos/jobs/2.jpg", title:"Debris Removal & Fence Painting", category:"Painting",
+    { id:2,  status:"done", completedOn:"Sun 5 July 2026", site:"Junior", img:"photos/jobs/2.jpg", title:"Debris Removal & Fence Painting", category:"Painting",
       location:"Junior Site",
       desc:"Clear debris from the area then give the wooden fencing a fresh coat of paint. A really satisfying before-and-after job.",
       time:"2 hrs", people:"2–3 people", tools:"Rake, gloves, paintbrushes, fence paint" },
@@ -1425,12 +1457,12 @@ const jobs = [
       desc:"Remove leaves and rubbish, and cut back overgrown vegetation across the site. Classic outdoor work — fresh air included!",
       time:"2 hrs", people:"3–4 people", tools:"Gloves, shears, rake, bags" },
 
-    { id:7,  status:"todo", site:"Junior", img:"photos/jobs/7.jpg", title:"Branch & Leaf Removal", category:"Clearance",
+    { id:7,  status:"in-progress", site:"Junior", img:"photos/jobs/7.jpg", title:"Branch & Leaf Removal", category:"Clearance",
       location:"Junior Site",
       desc:"Clear old fallen branches and built-up leaf litter from around the site. Good outdoor physical work.",
       time:"1 hr", people:"2–3 people", tools:"Gloves, loppers, rake, bags" },
 
-    { id:9,  status:"todo", site:"Junior", img:"photos/jobs/9.jpg", title:"Moss & Leaf Clearance", category:"Clearance",
+    { id:9,  status:"done", completedOn:"Sun 5 July 2026", site:"Junior", img:"photos/jobs/9.jpg", title:"Moss & Leaf Clearance", category:"Clearance",
       location:"Junior Site",
       desc:"Scrub away moss build-up and sweep accumulated leaves from pathways and surfaces around the site.",
       time:"1 hr", people:"2 people", tools:"Stiff brush, rake, gloves, bags" },
@@ -1450,7 +1482,7 @@ const jobs = [
       desc:"Clear moss, overgrown vegetation and leaves from the area next to the Sam's Shed platform. A satisfying tidy-up job.",
       time:"1 hr", people:"2 people", tools:"Stiff brush, rake, gloves, shears" },
 
-    { id:13, status:"todo", site:"Junior", img:"photos/jobs/13.jpg", title:"Leaf Build-up Clearance", category:"Clearance",
+    { id:13, status:"done", completedOn:"Sun 5 July 2026", site:"Junior", img:"photos/jobs/13.jpg", title:"Leaf Build-up Clearance", category:"Clearance",
       location:"Junior Site",
       desc:"Clear a significant build-up of leaves and debris. Grab a rake and get stuck in — this one is very satisfying once done!",
       time:"1 hr", people:"2 people", tools:"Rake, gloves, bags" },
@@ -1490,9 +1522,9 @@ const jobs = [
       desc:"The wooden bench and sink area needs some basic repair work followed by a fresh coat of paint. A great job for someone with a bit of DIY confidence.",
       time:"3 hrs", people:"2 people", tools:"Sandpaper, wood filler, exterior paint, brushes, gloves" },
 
-    { id:21, status:"todo", priority:true, site:"Infant", img:"photos/jobs/21.jpg", title:"Ty Enfys Handrails & Spindles Painting", category:"Painting",
+    { id:21, status:"in-progress", priority:true, site:"Infant", img:"photos/jobs/21.jpg", title:"Ty Enfys Handrails & Spindles Painting", category:"Painting",
       location:"Ty Enfys outdoor building",
-      desc:"Following the recent painting of the Ty Enfys outdoor building, the handrails and spindles still need finishing off. A neat, detailed paint job.",
+      desc:"First coat went on during the 5 July session — the handrails and spindles now need their second coat to finish. A neat, detailed paint job.",
       time:"3 hrs", people:"1–2 people", tools:"Brushes, exterior paint, dust sheet, gloves" },
 
     { id:22, status:"todo", site:"Infant", img:"photos/jobs/22.jpg", title:"Planting Area Tidy & Woodwork Painting", category:"Gardening",
@@ -1500,7 +1532,7 @@ const jobs = [
       desc:"The planting area needs weeding and tidying up, and the surrounding woodwork needs an extra coat of paint. A two-in-one job — good for a pair working together.",
       time:"2 hrs", people:"2–3 people", tools:"Trowel, gloves, bags, brushes, exterior paint" },
 
-    { id:23, status:"todo", site:"Infant", img:"photos/jobs/23.jpg", title:"Main Reception Border Tidy", category:"Gardening",
+    { id:23, status:"done", completedOn:"Sun 5 July 2026", site:"Infant", img:"photos/jobs/23.jpg", title:"Main Reception Border Tidy", category:"Gardening",
       location:"Path into Main Reception",
       desc:"The border along the path into Main Reception needs tidying — dead daffodils to clear and rose bushes to prune back. A lovely gardening job in a prominent spot.",
       time:"2 hrs", people:"1–2 people", tools:"Secateurs, gloves, bags, kneeling pad" },
@@ -1530,14 +1562,14 @@ const jobs = [
       desc:"Overgrown bushes and grass throughout the infant site need cutting back. Good physical outdoor work — bring your shears!",
       time:"2 hrs", people:"2–3 people", tools:"Shears / hedge trimmer, rake, gloves, bags" },
 
-    { id:29, status:"todo", site:"Infant", img:"photos/jobs/29.jpg", title:"Orchard Clearance", category:"Clearance",
+    { id:29, status:"in-progress", site:"Infant", img:"photos/jobs/29.jpg", title:"Orchard Clearance", category:"Clearance",
       location:"Orchard area, Infant Site",
       desc:"The orchard area has become badly overgrown and needs a proper clearance. A great job for a team — satisfying work in a lovely part of the grounds.",
       time:"4 hrs", people:"3–4 people", tools:"Loppers, shears, rake, gloves, bags" },
 
-    { id:30, status:"todo", priority:true, site:"Infant", img:"photos/jobs/30.jpg", title:"Front Fencing — Large Painting Job", category:"Painting",
+    { id:30, status:"in-progress", priority:true, site:"Infant", img:"photos/jobs/30.jpg", title:"Front Fencing — Large Painting Job", category:"Painting",
       location:"Front of Infant Site",
-      desc:"A large expanse of wooden fencing at the front of the infant site needs painting. High visibility job — it'll make a great impression on everyone who passes!",
+      desc:"First coat went on during the 5 July session — this big run of fencing now needs its second coat to finish. A high-visibility job that makes a great impression on everyone who passes!",
       time:"2 hrs", people:"3–4 people", tools:"Fence paint, rollers, brushes, dust sheets, gloves" },
 
     { id:31, status:"todo", site:"Infant", img:"photos/jobs/31.jpg", title:"Metal Gates — Rub Down & Paint", category:"Painting",
