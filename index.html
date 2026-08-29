@@ -1270,13 +1270,13 @@ footer.site-footer .small { font-size: 0.78rem; }
 
     <div class="next-event">
         <div class="eyebrow">📣 Next session</div>
-        <h2><span class="blue">Wednesday</span> <span class="green">12th August</span></h2>
-        <div class="when">5pm</div>
+        <h2><span class="blue">Sunday</span> <span class="green">6th September</span></h2>
+        <div class="when">10am – 1pm</div>
 
         <div class="next-event-row">
             <div class="cell">
                 <div class="label">📅 When</div>
-                <div class="value">Wed 12 August<br>5pm</div>
+                <div class="value">Sun 6 September<br>10am – 1pm</div>
             </div>
             <div class="cell">
                 <div class="label">📍 Where</div>
@@ -1312,15 +1312,15 @@ footer.site-footer .small { font-size: 0.78rem; }
         <h2 class="board-title">Jobs that need doing</h2>
         <p class="board-sub">
             A running list. Pick one, several, or just turn up and we'll point you somewhere.
-            <span class="updated">↻ Updated 8 July 2026</span>
+            <span class="updated">↻ Updated 29 August 2026</span>
         </p>
 
         <!-- Priorities for this Sunday -->
         <div class="priorities" id="priorities">
             <div class="priorities-head">
                 <p class="priorities-eyebrow">⭐ This Sunday's focus</p>
-                <h3 class="priorities-title">Priorities for Wednesday 12 August</h3>
-                <p class="priorities-sub">Both got their first coat on 5 July — a second coat is all that’s left. If you can spare some time, these are the two we’d love to finish first.</p>
+                <h3 class="priorities-title">Priorities for Sunday 6 September</h3>
+                <p class="priorities-sub">If you can spare some time, these are the three we’d love to get finished first.</p>
             </div>
             <div class="priorities-grid" id="priorities-grid"></div>
         </div>
@@ -1492,7 +1492,7 @@ const jobs = [
       desc:"Sand down and repaint the picnic tables so they're looking fresh for the children. A really rewarding transformation you'll be able to see every day.",
       time:"4 hrs", people:"2–3 people", tools:"Sandpaper / orbital sander, wood paint or stain, brushes, gloves" },
 
-    { id:15, status:"todo", site:"Junior", img:"photos/jobs/15.jpg", title:"Planting Area Weeding", category:"Gardening",
+    { id:15, status:"done", completedOn:"Sun 2 August 2026", site:"Junior", img:"photos/jobs/15.jpg", title:"Planting Area Weeding", category:"Gardening",
       location:"Planting borders, Junior Site",
       desc:"Get your hands in the soil and weed the planting borders. Perfect for anyone who enjoys proper gardening — bring your trowel!",
       time:"2 hrs", people:"2–3 people", tools:"Trowel, gloves, kneeling pad, bags" },
@@ -1562,7 +1562,7 @@ const jobs = [
       desc:"Overgrown bushes and grass throughout the infant site need cutting back. Good physical outdoor work — bring your shears!",
       time:"2 hrs", people:"2–3 people", tools:"Shears / hedge trimmer, rake, gloves, bags" },
 
-    { id:29, status:"in-progress", site:"Infant", img:"photos/jobs/29.jpg", title:"Orchard Clearance", category:"Clearance",
+    { id:29, status:"done", completedOn:"Sun 2 August 2026", site:"Infant", img:"photos/jobs/29.jpg", title:"Orchard Clearance", category:"Clearance",
       location:"Orchard area, Infant Site",
       desc:"The orchard area has become badly overgrown and needs a proper clearance. A great job for a team — satisfying work in a lovely part of the grounds.",
       time:"4 hrs", people:"3–4 people", tools:"Loppers, shears, rake, gloves, bags" },
@@ -1576,6 +1576,11 @@ const jobs = [
       location:"Infant pathway",
       desc:"The metal gates along the infant pathway need rubbing down and repainting. A job that needs a bit of care — good for someone who takes pride in a neat finish.",
       time:"4 hrs", people:"1–2 people", tools:"Sandpaper, metal primer, metal paint, brushes, gloves" },
+
+    { id:34, status:"todo", priority:true, site:"Infant", img:"photos/jobs/34.jpg", title:"Cut Back Trees & Hedge at the School Sign", category:"Clearance",
+      location:"Front boundary, Infant Site",
+      desc:"The willow and conifers have swallowed the welcome sign — cut them back so it can be seen from the road again.",
+      time:"1 hr", people:"2 people", tools:"Loppers, hedge trimmer, gloves, bags" },
 ];
 
 /* ───────── RENDER ───────── */
