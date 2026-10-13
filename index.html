@@ -665,121 +665,6 @@ header.site-header {
 
 .done-stamp { display: none; }
 
-/* ───────────── PRIORITIES STRIP ───────────── */
-.priorities {
-    margin: 26px 0 8px;
-    padding: 22px 22px 24px;
-    background: var(--green-soft);
-    border: 1.5px solid var(--green);
-    border-radius: var(--radius-card);
-}
-
-.priorities-head { margin-bottom: 18px; }
-
-.priorities-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.72rem;
-    font-weight: 900;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: #fff;
-    background: var(--green-deep);
-    padding: 5px 12px;
-    border-radius: var(--radius-chip);
-}
-
-.priorities-title {
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: var(--green-deep);
-    margin-top: 12px;
-    line-height: 1.15;
-}
-
-.priorities-sub {
-    color: var(--ink-soft);
-    font-size: 0.95rem;
-    max-width: 620px;
-    margin-top: 6px;
-    text-wrap: pretty;
-}
-
-.priorities-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    gap: 18px;
-}
-
-.priority-card {
-    display: flex;
-    background: var(--cream-card);
-    border: 2px solid var(--green);
-    border-radius: var(--radius-card);
-    overflow: hidden;
-    cursor: pointer;
-    box-shadow: var(--shadow-card);
-    transition: transform .18s ease, box-shadow .18s ease;
-}
-
-.priority-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-hover);
-}
-
-.priority-thumb {
-    width: 150px;
-    flex-shrink: 0;
-    position: relative;
-    background: var(--green-soft);
-}
-
-.priority-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.priority-thumb.placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.priority-thumb.placeholder .ph-icon {
-    font-size: 2.6rem;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.18));
-}
-
-.priority-badge {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background: var(--green-deep);
-    color: #fff;
-    font-size: 0.66rem;
-    font-weight: 900;
-    letter-spacing: 0.4px;
-    padding: 4px 9px;
-    border-radius: var(--radius-chip);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-
-.priority-body {
-    padding: 15px 18px 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    min-width: 0;
-}
-
-@media (max-width: 520px) {
-    .priorities-grid { grid-template-columns: 1fr; }
-    .priority-card { flex-direction: column; }
-    .priority-thumb { width: 100%; height: 150px; }
-}
-
 /* ───────────── STORY / PAST EVENTS ───────────── */
 .story {
     padding: 24px 24px 56px;
@@ -1255,6 +1140,22 @@ footer.site-footer .small { font-size: 0.78rem; }
     .tabs { gap: 6px; }
     .tab { padding: 9px 14px; font-size: 0.86rem; }
 }
+
+/* October session photographs and gallery */
+.job-card.session-job { opacity: 1; }
+.job-card.session-job .job-thumb { filter: none; }
+.job-card.session-job .job-thumb::after { display: none; }
+.job-card.session-job .job-title { text-decoration: none; color: var(--ink); }
+.photo-count { font-size: 0.78rem; color: var(--ink-soft); margin-top: 8px; }
+.lightbox-inner { max-height: calc(100dvh - 48px); overflow-y: auto; }
+.lightbox-img { object-fit: contain; max-height: 48vh; }
+.photo-caption { text-align: center; font-weight: 800; padding: 8px 12px; color: var(--green-deep); }
+.photo-picker { display: flex; justify-content: center; gap: 10px; padding: 0 16px 12px; }
+.photo-picker button { width: 96px; padding: 4px; border: 2px solid var(--line); border-radius: 10px; background: var(--cream-soft); color: var(--ink); font: inherit; font-size: 0.8rem; font-weight: 800; cursor: pointer; }
+.photo-picker button[aria-pressed="true"] { border-color: var(--green-deep); background: var(--green-soft); }
+.photo-picker img { width: 100%; height: 60px; object-fit: cover; border-radius: 6px; }
+.job-card:focus-visible, .photo-picker button:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+@media (max-width: 360px) { .jobs-grid { grid-template-columns: minmax(0, 1fr); } }
 </style>
 </head>
 <body>
@@ -1270,13 +1171,13 @@ footer.site-footer .small { font-size: 0.78rem; }
 
     <div class="next-event">
         <div class="eyebrow">📣 Next session</div>
-        <h2><span class="blue">Sunday</span> <span class="green">4th October</span></h2>
+        <h2><span class="blue">Sunday</span> <span class="green">1st November</span></h2>
         <div class="when">10am – 1pm</div>
 
         <div class="next-event-row">
             <div class="cell">
                 <div class="label">📅 When</div>
-                <div class="value">Sun 4 October<br>10am – 1pm</div>
+                <div class="value">Sun 1st November<br>10am – 1pm</div>
             </div>
             <div class="cell">
                 <div class="label">📍 Where</div>
@@ -1312,18 +1213,8 @@ footer.site-footer .small { font-size: 0.78rem; }
         <h2 class="board-title">Jobs that need doing</h2>
         <p class="board-sub">
             A running list. Pick one, several, or just turn up and we'll point you somewhere.
-            <span class="updated">↻ Updated 27 September 2026</span>
+            <span class="updated">↻ Updated 13th October 2026</span>
         </p>
-
-        <!-- Priorities for this Sunday -->
-        <div class="priorities" id="priorities">
-            <div class="priorities-head">
-                <p class="priorities-eyebrow">⭐ This Sunday's focus</p>
-                <h3 class="priorities-title">Priorities for Sunday 4 October</h3>
-                <p class="priorities-sub">If you can spare some time, these are the three we’d love to get finished first.</p>
-            </div>
-            <div class="priorities-grid" id="priorities-grid"></div>
-        </div>
 
         <div class="tabs" id="tabs">
             <button class="tab active" data-status="todo">✏️ Needs doing <span class="count" id="count-todo">0</span></button>
@@ -1409,7 +1300,7 @@ footer.site-footer .small { font-size: 0.78rem; }
 </footer>
 
 <!-- ───────── LIGHTBOX ───────── -->
-<div class="lightbox" id="lightbox">
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
     <div class="lightbox-inner" id="lightbox-inner">
         <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
         <div id="lightbox-media"></div>
@@ -1428,10 +1319,25 @@ footer.site-footer .small { font-size: 0.78rem; }
    To update: change `status` on a job:
      "todo"        — still needs doing
      "in-progress" — currently being worked on
-     "done"        — completed (add `completedOn`: "Sun 4 May 2026")
+     "done"        — completed (add `completedOn`: "Sunday 4th October 2026")
    Add `img` to give a job a real photo file path.
    ───────────────────────────────────────────────── */
 const jobs = [
+    // October session records are separate from the outstanding jobs below.
+    {"id": 35, "status": "done", "completedOn": "Sunday 4th October 2026", "site": "Infant", "title": "Gutter repairs", "category": "Maintenance", "location": "Year 1 and 2 area", "desc": "Repaired the guttering outside the Year 1 and 2 area, including a temporary fix to a section that was dipping.", "img": "photos/2026-10-04/gutter-repairs.webp", "photos": [{"src": "photos/2026-10-04/gutter-repairs.webp", "label": "Gutter repaired"}]},
+    {"id": 36, "status": "done", "completedOn": "Sunday 4th October 2026", "site": "Infant", "title": "Outdoor learning area cleared", "category": "Clearance", "location": "Year 1 and 2 outdoor learning area", "desc": "Removed ivy and a bag of garden waste, cleared leaves and debris, and cleaned underneath the covered area. Loose toys and equipment were gathered safely into a bag on top of the bag store.", "img": "photos/2026-10-04/outdoor-learning-after.webp", "photos": [{"src": "photos/2026-10-04/outdoor-learning-after.webp", "label": "After"}, {"src": "photos/2026-10-04/outdoor-learning-before.webp", "label": "Before"}, {"src": "photos/2026-10-04/outdoor-learning-during.webp", "label": "During"}]},
+    {"id": 37, "status": "done", "completedOn": "Sunday 4th October 2026", "site": "Infant", "title": "Castle area waste cleared", "category": "Clearance", "location": "Castle area", "desc": "Removed the waste left after other volunteers cut back the area during the week."},
+    {"id": 38, "status": "done", "completedOn": "Sunday 4th October 2026", "site": "Infant", "title": "Orchard garden waste removed", "category": "Clearance", "location": "Orchard area", "desc": "Removed the large pile of garden waste and packed the skip carefully to make full use of the available space.", "img": "photos/2026-10-04/orchard-after.webp", "photos": [{"src": "photos/2026-10-04/orchard-after.webp", "label": "After"}, {"src": "photos/2026-10-04/orchard-before.webp", "label": "Before"}, {"src": "photos/2026-10-04/orchard-during.webp", "label": "During"}]},
+    {"id": 39, "status": "done", "completedOn": "Sunday 4th October 2026", "site": "Infant", "title": "Car park cleared and gates painted", "category": "Painting", "location": "Infant car park", "desc": "Removed ivy and other growth, then sanded and painted the car park gates.", "img": "photos/2026-10-04/car-park-gates-after.webp", "photos": [{"src": "photos/2026-10-04/car-park-gates-after.webp", "label": "After"}, {"src": "photos/2026-10-04/car-park-gates-before.webp", "label": "Before"}]},
+    {"id": 40, "status": "done", "completedOn": "Sunday 4th October 2026", "site": "Infant", "title": "Apples cleared from the entrance", "category": "Clearance", "location": "Year 2 entrance", "desc": "Cleared away the rotten apples around the Year 2 entrance."},
+    {"id": 41, "status": "done", "completedOn": "Sunday 4th October 2026", "site": "Infant", "title": "Picnic tables sanded and painted", "category": "Painting", "location": "Picnic table area", "desc": "Sanded and painted the picnic tables during the October session.", "img": "photos/2026-10-04/picnic-tables-after.webp", "photos": [{"src": "photos/2026-10-04/picnic-tables-after.webp", "label": "After"}, {"src": "photos/2026-10-04/picnic-tables-before.webp", "label": "Before"}]},
+    {"id": 42, "status": "done", "completedOn": "Sunday 4th October 2026", "site": "Infant", "title": "Benches prepared for painting", "category": "Painting", "location": "Outside Ty Enfys", "desc": "Sanded the benches and prepared them ready for a coat of paint. Painting is still to follow."},
+    {"id": 43, "status": "done", "completedOn": "Sunday 4th October 2026", "site": "Infant", "title": "Balls retrieved", "category": "Maintenance", "location": "Year 1 and 2 outdoor area", "desc": "Retrieved balls from an inaccessible area."},
+    {"id": 44, "status": "done", "completedOn": "Sunday 4th October 2026", "site": "Infant", "title": "Willow Tree area tidied", "category": "Gardening", "location": "Willow Tree area", "desc": "Tidied the area and carried out some additional pruning."},
+    {"id": 45, "status": "done", "completedOn": "Sunday 4th October 2026", "site": "Infant", "title": "Entrance planters weeded and tidied", "category": "Gardening", "location": "Infant entrance", "desc": "Weeded and tidied the planters at the infant entrance.", "img": "photos/2026-10-04/planters-weeded.webp", "photos": [{"src": "photos/2026-10-04/planters-weeded.webp", "label": "After weeding and tidying"}]},
+    {"id": 46, "status": "done", "completedOn": "Sunday 4th October 2026", "site": "Infant", "title": "Entrance rose bushes pruned", "category": "Gardening", "location": "Infant entrance", "desc": "Pruned the rose bushes at the infant entrance."},
+    {"id": 47, "status": "done", "completedOn": "Sunday 4th October 2026", "site": "Infant", "title": "Planters painted", "category": "Painting", "location": "Outside Ty Enfys", "desc": "Painted the planters outside Ty Enfys.", "img": "photos/2026-10-04/planters-painted.webp", "photos": [{"src": "photos/2026-10-04/planters-painted.webp", "label": "After painting"}]},
+
     { id:1,  status:"done", site:"Junior", img:"photos/jobs/1.jpg", title:"Hall Front Clearance", category:"Clearance",
       location:"Outside the front of the Hall",
       desc:"Remove bricks, leaves, overgrown vegetation and ivy from the area outside the front of the Hall. A great team job to kick things off!",
@@ -1487,7 +1393,7 @@ const jobs = [
       desc:"Clear a significant build-up of leaves and debris. Grab a rake and get stuck in — this one is very satisfying once done!",
       time:"1 hr", people:"2 people", tools:"Rake, gloves, bags" },
 
-    { id:14, status:"todo", priority:true, site:"Junior", img:"photos/jobs/14.jpg", title:"Picnic Table Restoration", category:"Painting",
+    { id:14, status:"todo", site:"Junior", img:"photos/jobs/14.jpg", title:"Picnic Table Restoration", category:"Painting",
       location:"Junior Site",
       desc:"Sand down and repaint the picnic tables so they're looking fresh for the children. A really rewarding transformation you'll be able to see every day.",
       time:"4 hrs", people:"2–3 people", tools:"Sandpaper / orbital sander, wood paint or stain, brushes, gloves" },
@@ -1497,7 +1403,7 @@ const jobs = [
       desc:"Get your hands in the soil and weed the planting borders. Perfect for anyone who enjoys proper gardening — bring your trowel!",
       time:"2 hrs", people:"2–3 people", tools:"Trowel, gloves, kneeling pad, bags" },
 
-    { id:16, status:"todo", priority:true, site:"Junior", img:"photos/jobs/16.jpg", title:"Moss Removal & Picnic Table Attention", category:"Clearance",
+    { id:16, status:"todo", site:"Junior", img:"photos/jobs/16.jpg", title:"Moss Removal & Picnic Table Attention", category:"Clearance",
       location:"Junior Site",
       desc:"Remove moss from surfaces and give the picnic tables in this area a good clean and tidy. A great job for a couple of people working together.",
       time:"2 hrs", people:"2 people", tools:"Stiff brush, scraper, gloves, cleaning solution" },
@@ -1537,7 +1443,7 @@ const jobs = [
       desc:"The border along the path into Main Reception needs tidying — dead daffodils to clear and rose bushes to prune back. A lovely gardening job in a prominent spot.",
       time:"2 hrs", people:"1–2 people", tools:"Secateurs, gloves, bags, kneeling pad" },
 
-    { id:24, status:"todo", priority:true, site:"Infant", img:"photos/jobs/24.jpg", title:"Playground Shed Painting (1)", category:"Painting",
+    { id:24, status:"todo", site:"Infant", img:"photos/jobs/24.jpg", title:"Playground Shed Painting (1)", category:"Painting",
       location:"Infant playground",
       desc:"The first of two sheds in the infant playground needs a fresh coat of paint. Rollers and brushes needed — a satisfying and visible result.",
       time:"2 hrs", people:"2 people", tools:"Exterior paint, brushes, roller, dust sheet, gloves" },
@@ -1654,10 +1560,14 @@ function renderJobs() {
         card.className = "job-card";
         card.dataset.status = j.status;
         card.dataset.id     = j.id;
+        if (j.completedOn === "Sunday 4th October 2026") card.classList.add("session-job");
+        card.tabIndex = 0;
+        card.setAttribute("role", "button");
+        card.setAttribute("aria-label", `View ${j.title}`);
 
         // Thumb: real image if `img` present, else category-colored placeholder
         const thumbHTML = j.img
-            ? `<div class="job-thumb"><img src="${j.img}" alt="${j.title}"></div>`
+            ? `<div class="job-thumb"><img src="${j.img}" alt="${j.title}" loading="lazy"></div>`
             : `<div class="job-thumb placeholder ${meta.cls}"><span class="ph-icon">${meta.icon}</span></div>`;
 
         card.innerHTML = `
@@ -1668,9 +1578,10 @@ function renderJobs() {
                 <div class="job-location">📍 ${j.location}</div>
                 <div class="job-desc">${j.desc}</div>
                 <div class="job-meta">
-                    <span class="meta-tag">⏱ ${j.time}</span>
-                    <span class="meta-tag">👥 ${j.people}</span>
+                    ${j.time ? `<span class="meta-tag">⏱ ${j.time}</span>` : ""}
+                    ${j.people ? `<span class="meta-tag">👥 ${j.people}</span>` : ""}
                 </div>
+                ${j.photos && j.photos.length > 1 ? `<div class="photo-count">📷 ${j.photos.length} photos · before and after</div>` : ""}
                 ${j.completedOn ? `<div class="done-stamp">✓ Completed ${j.completedOn}</div>` : ""}
             </div>
         `;
@@ -1691,46 +1602,10 @@ function renderJobs() {
 
         // Lightbox trigger
         card.addEventListener("click", () => openLightbox(j));
+        card.addEventListener("keydown", e => {
+            if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openLightbox(j); }
+        });
 
-        grid.appendChild(card);
-    });
-}
-
-/* ───────── PRIORITIES ───────── */
-function renderPriorities() {
-    const section = document.getElementById("priorities");
-    const grid    = document.getElementById("priorities-grid");
-    const pris    = jobs.filter(j => j.priority && j.status !== "done");
-
-    if (!pris.length) { section.style.display = "none"; return; }
-    section.style.display = "block";
-    grid.innerHTML = "";
-
-    pris.forEach(j => {
-        const meta = CAT_META[j.category] || { cls:"cat-clearance", icon:"🌿" };
-        const card = document.createElement("div");
-        card.className = "priority-card";
-
-        const thumbHTML = j.img
-            ? `<div class="priority-thumb"><img src="${j.img}" alt="${j.title}"><span class="priority-badge">⭐ Priority</span></div>`
-            : `<div class="priority-thumb placeholder ${meta.cls}"><span class="ph-icon">${meta.icon}</span><span class="priority-badge">⭐ Priority</span></div>`;
-
-        card.innerHTML = `
-            ${thumbHTML}
-            <div class="priority-body">
-                <span class="job-cat ${meta.cls}-text">${j.category}</span>
-                <div class="job-title">${j.title}</div>
-                <div class="job-location">📍 ${j.location} · ${j.site} site</div>
-                <div class="job-desc">${j.desc}</div>
-                <div class="job-meta">
-                    <span class="meta-tag">⏱ ${j.time}</span>
-                    <span class="meta-tag">👥 ${j.people}</span>
-                    <span class="meta-tag">#${j.id}</span>
-                </div>
-            </div>
-        `;
-
-        card.addEventListener("click", () => openLightbox(j));
         grid.appendChild(card);
     });
 }
@@ -1763,34 +1638,74 @@ const lightboxDesc  = document.getElementById("lightbox-desc");
 const lightboxMeta  = document.getElementById("lightbox-meta");
 const lightboxClose = document.getElementById("lightbox-close");
 
+let lightboxTrigger = null;
+
 function openLightbox(j) {
+    lightboxTrigger = document.activeElement;
     const meta = CAT_META[j.category] || { cls:"cat-clearance", icon:"🌿" };
 
-    lightboxMedia.innerHTML = j.img
-        ? `<img class="lightbox-img" src="${j.img}" alt="${j.title}">`
+    const photos = j.photos || (j.img ? [{ src: j.img, label: j.title }] : []);
+    lightboxMedia.innerHTML = photos.length
+        ? `<img class="lightbox-img" src="${photos[0].src}" alt="${j.title} — ${photos[0].label}">`
         : `<div class="lightbox-img-placeholder ${meta.cls}">${meta.icon}</div>`;
+    if (j.photos) {
+        const caption = document.createElement("p");
+        caption.className = "photo-caption";
+        caption.textContent = photos[0].label;
+        lightboxMedia.appendChild(caption);
+        if (photos.length > 1) {
+            const gallery = document.createElement("div");
+            gallery.className = "photo-picker";
+            photos.forEach((photo, index) => {
+                const button = document.createElement("button");
+                button.type = "button";
+                button.setAttribute("aria-pressed", String(index === 0));
+                button.innerHTML = `<img src="${photo.src}" alt=""><span>${photo.label}</span>`;
+                button.addEventListener("click", () => {
+                    const mainImage = lightboxMedia.querySelector(".lightbox-img");
+                    mainImage.src = photo.src;
+                    mainImage.alt = `${j.title} — ${photo.label}`;
+                    caption.textContent = photo.label;
+                    gallery.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b === button)));
+                });
+                gallery.appendChild(button);
+            });
+            lightboxMedia.appendChild(gallery);
+        }
+    }
 
     lightboxTitle.textContent = j.title;
-    lightboxLoc.textContent   = `📍 ${j.location} · ${j.site} site`;
+    lightboxLoc.textContent   = `📍 ${j.location}`;
     lightboxDesc.textContent  = j.desc;
     lightboxMeta.innerHTML    = `
-        <span class="meta-tag">⏱ ${j.time}</span>
-        <span class="meta-tag">👥 ${j.people}</span>
-        <span class="meta-tag">🔨 ${j.tools}</span>
+        ${j.time ? `<span class="meta-tag">⏱ ${j.time}</span>` : ""}
+        ${j.people ? `<span class="meta-tag">👥 ${j.people}</span>` : ""}
+        ${j.tools ? `<span class="meta-tag">🔨 ${j.tools}</span>` : ""}
         ${j.completedOn ? `<span class="meta-tag" style="background:var(--green-soft);color:var(--green-deep);border-color:var(--green);">✓ Done ${j.completedOn}</span>` : ""}
     `;
     lightbox.classList.add("open");
     document.body.style.overflow = "hidden";
+    lightboxClose.focus();
 }
 
 function closeLightbox() {
     lightbox.classList.remove("open");
     document.body.style.overflow = "";
+    if (lightboxTrigger) lightboxTrigger.focus();
 }
 
 lightboxClose.addEventListener("click", closeLightbox);
 lightbox.addEventListener("click", e => { if (e.target === lightbox) closeLightbox(); });
-document.addEventListener("keydown", e => { if (e.key === "Escape") closeLightbox(); });
+document.addEventListener("keydown", e => {
+    if (!lightbox.classList.contains("open")) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "Tab") {
+        const buttons = [...lightbox.querySelectorAll("button")];
+        const first = buttons[0], last = buttons[buttons.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+});
 
 /* ───────── CONTACT FORM ───────── */
 // Works on Netlify (which it's already deployed to): the data-netlify="true"
@@ -1814,7 +1729,6 @@ form.addEventListener("submit", e => {
 
 /* ───────── INIT ───────── */
 renderCounts();
-renderPriorities();
 renderJobs();
 </script>
 
