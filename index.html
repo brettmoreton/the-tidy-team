@@ -1611,11 +1611,28 @@ function renderJobs() {
 }
 
 /* ───────── TABS + FILTERS ───────── */
+const statusLinks = { todo: "needs-doing", "in-progress": "in-progress", done: "recently-done" };
+
+function openLinkedJobs() {
+    const status = Object.keys(statusLinks).find(key => `#${statusLinks[key]}` === window.location.hash);
+    if (!status) return;
+    activeStatus = status;
+    activeCat = "all";
+    document.querySelectorAll(".tab").forEach(btn => btn.classList.toggle("active", btn.dataset.status === status));
+    document.querySelectorAll(".cat-chip").forEach(btn => btn.classList.toggle("active", btn.dataset.cat === "all"));
+    renderJobs();
+    document.getElementById("board").scrollIntoView({ behavior: "instant", block: "start" });
+}
+
+window.addEventListener("hashchange", openLinkedJobs);
+window.addEventListener("load", openLinkedJobs);
+
 document.querySelectorAll(".tab").forEach(btn => {
     btn.addEventListener("click", () => {
         document.querySelectorAll(".tab").forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
         activeStatus = btn.dataset.status;
+        history.replaceState(null, "", `#${statusLinks[activeStatus]}`);
         renderJobs();
     });
 });
@@ -1730,6 +1747,7 @@ form.addEventListener("submit", e => {
 /* ───────── INIT ───────── */
 renderCounts();
 renderJobs();
+openLinkedJobs();
 </script>
 
 </body>
