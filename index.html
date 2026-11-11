@@ -1141,7 +1141,7 @@ footer.site-footer .small { font-size: 0.78rem; }
     .tab { padding: 9px 14px; font-size: 0.86rem; }
 }
 
-/* October session photographs and gallery */
+/* Session photographs and gallery */
 .job-card.session-job { opacity: 1; }
 .job-card.session-job .job-thumb { filter: none; }
 .job-card.session-job .job-thumb::after { display: none; }
@@ -1157,24 +1157,6 @@ footer.site-footer .small { font-size: 0.78rem; }
 .job-card:focus-visible, .photo-picker button:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
 @media (max-width: 360px) { .jobs-grid { grid-template-columns: minmax(0, 1fr); } }
 
-/* Latest session: full photographs, with paired views and accessible enlargement. */
-.latest-session { padding: 24px 24px 48px; }
-.session-grid { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
-.session-card { min-width: 0; padding: 18px; background: var(--cream-soft); border: 1px solid var(--line); border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
-.session-card h3 { font-size: 1.2rem; font-weight: 900; margin-bottom: 6px; color: var(--green-deep); }
-.session-card p { font-size: .9rem; color: var(--ink-soft); margin-bottom: 16px; }
-.session-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-.session-photo { display: block; min-width: 0; border-radius: 10px; overflow: hidden; background: var(--green-soft); color: var(--ink); text-align: center; font-weight: 800; }
-.session-photo img { width: 100%; aspect-ratio: 3 / 4; object-fit: contain; }
-.session-photo span { display: block; padding: 7px 4px; }
-.session-photo:hover { text-decoration: none; box-shadow: 0 0 0 2px var(--green-deep); }
-.session-photo:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
-.session-link { display: inline-block; margin-top: 12px; font-weight: 800; }
-@media (max-width: 700px) {
-    .session-grid { grid-template-columns: minmax(0, 1fr); gap: 18px; }
-    .session-card { padding: 14px; }
-    .session-pair { gap: 8px; }
-}
 </style>
 </head>
 <body>
@@ -1211,7 +1193,7 @@ footer.site-footer .small { font-size: 0.78rem; }
         <div class="turn-up">Do bring gloves and any basic gardening tools you've got along with you</div>
     </div>
 
-    <p class="cadence-note">We meet the first Sunday of every month<br><a class="session-link" href="#latest-session">See photos from our latest session ↓</a></p>
+    <p class="cadence-note">We meet the first Sunday of every month</p>
 </section>
 
 <!-- ───────── ABOUT ───────── -->
@@ -1225,87 +1207,6 @@ footer.site-footer .small { font-size: 0.78rem; }
     </div>
 </section>
 
-<!-- ───────── LATEST SESSION ───────── -->
-<section class="latest-session" id="latest-session" aria-labelledby="latest-session-title">
-    <div class="board-head">
-        <p class="board-eyebrow">Thank you to everyone who lent a hand</p>
-        <h2 class="board-title" id="latest-session-title">Our latest tidy-up</h2>
-        <p class="board-sub">Clearing overgrowth, opening up paths and tackling autumn leaves.<br>Take a look at the difference from our last session. Tap a photo to enlarge it.</p>
-    </div>
-    <div class="session-grid">
-        <article class="session-card">
-            <h3>Clearing the garden path</h3>
-            <p>Overgrowth cut back along the path beside the wooden building.</p>
-            <div class="session-pair">
-                <a class="session-photo" href="photos/871150623_122155720407346702_1228307063476746042_n.jpg" data-session="0" data-photo="0" aria-label="Enlarge: Clearing the garden path — Before">
-                    <img src="photos/871150623_122155720407346702_1228307063476746042_n.jpg" alt="Overgrown path beside the wooden building and compost bins" loading="lazy" decoding="async" width="1290" height="1700">
-                    <span>Before</span>
-                </a>
-                <a class="session-photo" href="photos/867049533_122155720563346702_8384296642239731549_n.jpg" data-session="0" data-photo="1" aria-label="Enlarge: Clearing the garden path — After">
-                    <img src="photos/867049533_122155720563346702_8384296642239731549_n.jpg" alt="Garden path after the overgrowth was cut back" loading="lazy" decoding="async" width="1290" height="1700">
-                    <span>After</span>
-                </a>
-            </div>
-        </article>
-        <article class="session-card">
-            <h3>Around the bug hotel</h3>
-            <p>Overgrowth cleared around the tree stump and bug hotel.</p>
-            <div class="session-pair">
-                <a class="session-photo" href="photos/869933180_122155720389346702_5364000184605767401_n.jpg" data-session="1" data-photo="0" aria-label="Enlarge: Around the bug hotel — Before">
-                    <img src="photos/869933180_122155720389346702_5364000184605767401_n.jpg" alt="Dense growth around the tree and bug hotel" loading="lazy" decoding="async" width="1290" height="1700">
-                    <span>Before</span>
-                </a>
-                <a class="session-photo" href="photos/869951509_122155720575346702_4655239422551228284_n.jpg" data-session="1" data-photo="1" aria-label="Enlarge: Around the bug hotel — After">
-                    <img src="photos/869951509_122155720575346702_4655239422551228284_n.jpg" alt="Cleared ground around the tree stump and bug hotel" loading="lazy" decoding="async" width="1290" height="1700">
-                    <span>After</span>
-                </a>
-            </div>
-        </article>
-        <article class="session-card">
-            <h3>Beside the polytunnel</h3>
-            <p>Growth cut back beside the wooden building and polytunnel. Garden waste was gathered ready for disposal.</p>
-            <div class="session-pair">
-                <a class="session-photo" href="photos/871735874_122155720287346702_4673126557745908043_n.jpg" data-session="2" data-photo="0" aria-label="Enlarge: Beside the polytunnel — Before">
-                    <img src="photos/871735874_122155720287346702_4673126557745908043_n.jpg" alt="Overgrowth and pots beside the wooden building and polytunnel" loading="lazy" decoding="async" width="1290" height="1700">
-                    <span>Before</span>
-                </a>
-                <a class="session-photo" href="photos/882388996_122155720599346702_5372994542676498142_n.jpg" data-session="2" data-photo="1" aria-label="Enlarge: Beside the polytunnel — After">
-                    <img src="photos/882388996_122155720599346702_5372994542676498142_n.jpg" alt="Volunteers beside the cleared area, with garden waste awaiting disposal" loading="lazy" decoding="async" width="1290" height="1700">
-                    <span>After</span>
-                </a>
-            </div>
-        </article>
-        <article class="session-card">
-            <h3>Behind the polytunnel</h3>
-            <p>Branches and overgrowth cleared from the narrow space alongside the fence.</p>
-            <div class="session-pair">
-                <a class="session-photo" href="photos/865085804_122155720275346702_8871312307084946983_n.jpg" data-session="3" data-photo="0" aria-label="Enlarge: Behind the polytunnel — Before">
-                    <img src="photos/865085804_122155720275346702_8871312307084946983_n.jpg" alt="Branches obstructing the passage between the fence and polytunnel" loading="lazy" decoding="async" width="1290" height="1700">
-                    <span>Before</span>
-                </a>
-                <a class="session-photo" href="photos/870308153_122155720587346702_3710150845757643945_n.jpg" data-session="3" data-photo="1" aria-label="Enlarge: Behind the polytunnel — After">
-                    <img src="photos/870308153_122155720587346702_3710150845757643945_n.jpg" alt="Cleared passage between the fence and polytunnel" loading="lazy" decoding="async" width="1290" height="1700">
-                    <span>After</span>
-                </a>
-            </div>
-        </article>
-        <article class="session-card">
-            <h3>Tidying the pathways</h3>
-            <p>A look at the paths before work began, and volunteers sweeping up autumn leaves during the session.</p>
-            <div class="session-pair">
-                <a class="session-photo" href="photos/870183181_122155720359346702_1864970737045943543_n.jpg" data-session="4" data-photo="0" aria-label="Enlarge: Tidying the pathways — Before">
-                    <img src="photos/870183181_122155720359346702_1864970737045943543_n.jpg" alt="Paved school pathway with weeds along its edges" loading="lazy" decoding="async" width="1290" height="1700">
-                    <span>Before</span>
-                </a>
-                <a class="session-photo" href="photos/870115996_122155720347346702_389257886965978286_n.jpg" data-session="4" data-photo="1" aria-label="Enlarge: Tidying the pathways — During">
-                    <img src="photos/870115996_122155720347346702_389257886965978286_n.jpg" alt="Volunteers sweeping and collecting leaves on a school pathway" loading="lazy" decoding="async" width="1290" height="1700">
-                    <span>During</span>
-                </a>
-            </div>
-        </article>
-    </div>
-</section>
-
 <!-- ───────── JOBS BOARD ───────── -->
 <section class="board" id="board">
     <div class="board-head">
@@ -1313,7 +1214,7 @@ footer.site-footer .small { font-size: 0.78rem; }
         <h2 class="board-title">Jobs that need doing</h2>
         <p class="board-sub">
             A running list. Pick one, several, or just turn up and we'll point you somewhere.
-            <span class="updated">↻ Updated 13th October 2026</span>
+            <span class="updated">↻ Updated 11th November 2026</span>
         </p>
 
         <div class="tabs" id="tabs">
@@ -1423,6 +1324,13 @@ footer.site-footer .small { font-size: 0.78rem; }
    Add `img` to give a job a real photo file path.
    ───────────────────────────────────────────────── */
 const jobs = [
+    // Latest session records, displayed first in Recently done.
+    {"id":48,"status":"done","completedOn":"November 2026","site":"Infant","title":"Garden path cleared","category":"Clearance","location":"School garden","desc":"Overgrowth cut back along the path beside the wooden building.","img":"photos/867049533_122155720563346702_8384296642239731549_n.jpg","photos":[{"src":"photos/867049533_122155720563346702_8384296642239731549_n.jpg","label":"After","alt":"Garden path after the overgrowth was cut back"},{"src":"photos/871150623_122155720407346702_1228307063476746042_n.jpg","label":"Before","alt":"Overgrown path beside the wooden building and compost bins"}]},
+    {"id":49,"status":"done","completedOn":"November 2026","site":"Infant","title":"Bug hotel area cleared","category":"Clearance","location":"School garden","desc":"Overgrowth cleared around the tree stump and bug hotel.","img":"photos/869951509_122155720575346702_4655239422551228284_n.jpg","photos":[{"src":"photos/869951509_122155720575346702_4655239422551228284_n.jpg","label":"After","alt":"Cleared ground around the tree stump and bug hotel"},{"src":"photos/869933180_122155720389346702_5364000184605767401_n.jpg","label":"Before","alt":"Dense growth around the tree and bug hotel"}]},
+    {"id":50,"status":"done","completedOn":"November 2026","site":"Infant","title":"Polytunnel side cleared","category":"Clearance","location":"School garden","desc":"Growth cut back beside the wooden building and polytunnel. Garden waste was gathered ready for disposal.","img":"photos/882388996_122155720599346702_5372994542676498142_n.jpg","photos":[{"src":"photos/882388996_122155720599346702_5372994542676498142_n.jpg","label":"After","alt":"Volunteers beside the cleared area, with garden waste awaiting disposal"},{"src":"photos/871735874_122155720287346702_4673126557745908043_n.jpg","label":"Before","alt":"Overgrowth and pots beside the wooden building and polytunnel"}]},
+    {"id":51,"status":"done","completedOn":"November 2026","site":"Infant","title":"Behind the polytunnel cleared","category":"Clearance","location":"School garden","desc":"Branches and overgrowth cleared from the narrow space alongside the fence.","img":"photos/870308153_122155720587346702_3710150845757643945_n.jpg","photos":[{"src":"photos/870308153_122155720587346702_3710150845757643945_n.jpg","label":"After","alt":"Cleared passage between the fence and polytunnel"},{"src":"photos/865085804_122155720275346702_8871312307084946983_n.jpg","label":"Before","alt":"Branches obstructing the passage between the fence and polytunnel"}]},
+    {"id":52,"status":"done","completedOn":"November 2026","site":"Infant","title":"Pathways tidied","category":"Clearance","location":"School pathways","desc":"A look at the paths before work began, and volunteers sweeping up autumn leaves during the session.","img":"photos/870115996_122155720347346702_389257886965978286_n.jpg","photos":[{"src":"photos/870115996_122155720347346702_389257886965978286_n.jpg","label":"During","alt":"Volunteers sweeping and collecting leaves on a school pathway"},{"src":"photos/870183181_122155720359346702_1864970737045943543_n.jpg","label":"Before","alt":"Paved school pathway with weeds along its edges"}]},
+
     // October session records are separate from the outstanding jobs below.
     {"id": 35, "status": "done", "completedOn": "Sunday 4th October 2026", "site": "Infant", "title": "Gutter repairs", "category": "Maintenance", "location": "Year 1 and 2 area", "desc": "Repaired the guttering outside the Year 1 and 2 area, including a temporary fix to a section that was dipping.", "img": "photos/2026-10-04/gutter-repairs.webp", "photos": [{"src": "photos/2026-10-04/gutter-repairs.webp", "label": "Gutter repaired"}]},
     {"id": 36, "status": "done", "completedOn": "Sunday 4th October 2026", "site": "Infant", "title": "Outdoor learning area cleared", "category": "Clearance", "location": "Year 1 and 2 outdoor learning area", "desc": "Removed ivy and a bag of garden waste, cleared leaves and debris, and cleaned underneath the covered area. Loose toys and equipment were gathered safely into a bag on top of the bag store.", "img": "photos/2026-10-04/outdoor-learning-after.webp", "photos": [{"src": "photos/2026-10-04/outdoor-learning-after.webp", "label": "After"}, {"src": "photos/2026-10-04/outdoor-learning-before.webp", "label": "Before"}, {"src": "photos/2026-10-04/outdoor-learning-during.webp", "label": "During"}]},
@@ -1660,7 +1568,7 @@ function renderJobs() {
         card.className = "job-card";
         card.dataset.status = j.status;
         card.dataset.id     = j.id;
-        if (j.completedOn === "Sunday 4th October 2026") card.classList.add("session-job");
+        if (j.photos || j.completedOn === "Sunday 4th October 2026") card.classList.add("session-job");
         card.tabIndex = 0;
         card.setAttribute("role", "button");
         card.setAttribute("aria-label", `View ${j.title}`);
@@ -1681,7 +1589,7 @@ function renderJobs() {
                     ${j.time ? `<span class="meta-tag">⏱ ${j.time}</span>` : ""}
                     ${j.people ? `<span class="meta-tag">👥 ${j.people}</span>` : ""}
                 </div>
-                ${j.photos && j.photos.length > 1 ? `<div class="photo-count">📷 ${j.photos.length} photos · before and after</div>` : ""}
+                ${j.photos && j.photos.length > 1 ? `<div class="photo-count">📷 ${j.photos.length} photos · ${j.photos.some(photo => photo.label === "After") ? "before and after" : "before and during"}</div>` : ""}
                 ${j.completedOn ? `<div class="done-stamp">✓ Completed ${j.completedOn}</div>` : ""}
             </div>
         `;
@@ -1756,104 +1664,6 @@ const lightboxMeta  = document.getElementById("lightbox-meta");
 const lightboxClose = document.getElementById("lightbox-close");
 
 let lightboxTrigger = null;
-
-const latestSessionPhotos = [
-  {
-    "title": "Clearing the garden path",
-    "desc": "Overgrowth cut back along the path beside the wooden building.",
-    "location": "School garden",
-    "photos": [
-      {
-        "src": "photos/871150623_122155720407346702_1228307063476746042_n.jpg",
-        "label": "Before",
-        "alt": "Overgrown path beside the wooden building and compost bins"
-      },
-      {
-        "src": "photos/867049533_122155720563346702_8384296642239731549_n.jpg",
-        "label": "After",
-        "alt": "Garden path after the overgrowth was cut back"
-      }
-    ]
-  },
-  {
-    "title": "Around the bug hotel",
-    "desc": "Overgrowth cleared around the tree stump and bug hotel.",
-    "location": "School garden",
-    "photos": [
-      {
-        "src": "photos/869933180_122155720389346702_5364000184605767401_n.jpg",
-        "label": "Before",
-        "alt": "Dense growth around the tree and bug hotel"
-      },
-      {
-        "src": "photos/869951509_122155720575346702_4655239422551228284_n.jpg",
-        "label": "After",
-        "alt": "Cleared ground around the tree stump and bug hotel"
-      }
-    ]
-  },
-  {
-    "title": "Beside the polytunnel",
-    "desc": "Growth cut back beside the wooden building and polytunnel. Garden waste was gathered ready for disposal.",
-    "location": "School garden",
-    "photos": [
-      {
-        "src": "photos/871735874_122155720287346702_4673126557745908043_n.jpg",
-        "label": "Before",
-        "alt": "Overgrowth and pots beside the wooden building and polytunnel"
-      },
-      {
-        "src": "photos/882388996_122155720599346702_5372994542676498142_n.jpg",
-        "label": "After",
-        "alt": "Volunteers beside the cleared area, with garden waste awaiting disposal"
-      }
-    ]
-  },
-  {
-    "title": "Behind the polytunnel",
-    "desc": "Branches and overgrowth cleared from the narrow space alongside the fence.",
-    "location": "School garden",
-    "photos": [
-      {
-        "src": "photos/865085804_122155720275346702_8871312307084946983_n.jpg",
-        "label": "Before",
-        "alt": "Branches obstructing the passage between the fence and polytunnel"
-      },
-      {
-        "src": "photos/870308153_122155720587346702_3710150845757643945_n.jpg",
-        "label": "After",
-        "alt": "Cleared passage between the fence and polytunnel"
-      }
-    ]
-  },
-  {
-    "title": "Tidying the pathways",
-    "desc": "A look at the paths before work began, and volunteers sweeping up autumn leaves during the session.",
-    "location": "School pathways",
-    "photos": [
-      {
-        "src": "photos/870183181_122155720359346702_1864970737045943543_n.jpg",
-        "label": "Before",
-        "alt": "Paved school pathway with weeds along its edges"
-      },
-      {
-        "src": "photos/870115996_122155720347346702_389257886965978286_n.jpg",
-        "label": "During",
-        "alt": "Volunteers sweeping and collecting leaves on a school pathway"
-      }
-    ]
-  }
-];
-document.querySelectorAll(".session-photo").forEach(link => {
-    link.addEventListener("click", event => {
-        if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-        event.preventDefault();
-        const session = latestSessionPhotos[Number(link.dataset.session)];
-        const selected = Number(link.dataset.photo);
-        openLightbox({ ...session, photos: [session.photos[selected], ...session.photos.filter((_, index) => index !== selected)] });
-    });
-});
-
 
 function openLightbox(j) {
     lightboxTrigger = document.activeElement;
